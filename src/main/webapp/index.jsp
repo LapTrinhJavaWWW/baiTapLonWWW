@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	<p>
+		<% request.getParameter("name"); %>
+	</p>
 </body>
 </html>
