@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="../css/studentshow.css">
+</head>
+<body>
+	<div>
+		<h1>Danh sach sinh vien</h1>
+		<a th:href="@{/student/form}">Thêm sinh viên</a>
+		<table>
+			<tbody>
+				<tr>
+					<td>STT</td>
+					<td>Id</td>
+					<td>First Name</td>
+					<td>Email</td>
+					<td>Action</td>
+				</tr>
+				<tr th:each="item,iterStat : ${students}">
+					<td th:text="${iterStat.index+1}"></td>
+					<td th:text="${item.id}"></td>
+					<td th:text="${item.name}"></td>
+					<td th:text="${item.email}"></td>
+					<td><a th:href="@{'/student/delete/'+${item.id}}">Xóa</a></td>
+				</tr>
+		</table>
+	</div>
+</body>
+</html>

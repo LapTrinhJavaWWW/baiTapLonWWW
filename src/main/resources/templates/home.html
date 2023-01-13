@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Trang chủ</title>
+<!-- link-css -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+<link rel="stylesheet" href="../css/home.css" />
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+<!-- --- -->
+</head>
+
+<body>
+	<!-- header-start -->
+	<div class="container-fluid header">
+		<nav class="navbar navbar-expand-lg navbar-light">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"> <img src="../img/iconFPT.png"
+					alt="" />
+				</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+					aria-controls="navbarSupportedContent" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarSupportedContent">
+					<form class="d-flex col-5">
+						<input class="form-control me-2" type="search"
+							placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm"
+							aria-label="Search" />
+						<button class="btn btn-outline-success" type="submit">
+							<i class="fa fa-search" aria-hidden="true"></i>
+						</button>
+					</form>
+
+					<ul class="navbar-nav">
+						<li class="nav-item text-center"><a class="nav-link"><i
+								class="fa fa-newspaper-o" aria-hidden="true"></i></a> <a
+							class="nav-link h-text" href="/news">Thông tin hay</a></li>
+						<li class="nav-item text-center"><a class="nav-link"><i
+								class="fa fa-file-text" aria-hidden="true"></i></a> <a
+							class="nav-link h-text" href="#">Thanh toán & dịch vụ</a></li>
+						<li class="nav-item text-center"><a class="nav-link"><i
+								class="fa fa-user-circle-o" aria-hidden="true"></i></a> <a
+							class="nav-link h-text user-of-me" href="#">Tài khoản của tôi</a>
+							<!-- child-user -->
+							<ul id="menu-user">
+								<li><a href=""><i class="fa fa-info-circle"
+										aria-hidden="true"></i>&ensp;Thông tin của tôi</a></li>
+								<li><a href=""><i class="fa fa-shopping-cart"
+										aria-hidden="true"></i>&ensp;Giỏ hàng của tôi</a></li>
+								<li><a href=""><i class="fa fa-sign-out"
+										aria-hidden="true"></i>&ensp;Đăng xuất</a></li>
+							</ul></li>
+						<li class="nav-item text-center"><a class="nav-link"><i
+								class="fa fa-shopping-cart" aria-hidden="true"></i></a> <a
+							class="nav-link h-text" href="#">Giỏ hàng</a></li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</div>
+
+	<div class="container-fluid h-bottom">
+		<div class="d-flex justify-content-center">
+			<ul>
+				<li><a href="" class="nav-menu" value="dienthoai"
+					id="dienthoai"> <i class="fa fa-mobile" aria-hidden="true"></i>&ensp;ĐIỆN
+						THOẠI
+				</a></li>
+				<li><a href="" class="nav-menu" value="tablet" id="tablet">
+						<i class="fa fa-table" aria-hidden="true"></i>&ensp;TABLET
+				</a></li>
+				<li><a href="" class="nav-menu" value="phukien" id="phukien">
+						<i class="fa fa-headphones" aria-hidden="true"></i>&ensp;PHỤ KIỆN
+				</a></li>
+				<li><a href="" class="nav-menu"> <i class="fa fa-repeat"
+						aria-hidden="true"></i>&ensp;MÁY CỦ GIÁ RẺ
+				</a></li>
+				<li><a href="" class="nav-menu"> <i class="fa fa-id-card"
+						aria-hidden="true"></i>&ensp;SIM & THẺ
+				</a></li>
+				<li><a href="" class="nav-menu"> <i class="fa fa-gift"
+						aria-hidden="true"></i>&ensp;KHUYẾN MÃI
+				</a></li>
+			</ul>
+		</div>
+	</div>
+	<!-- header-stop -->
+	<!--menu-child-start -->
+
+	<!-- child-dienthoai -->
+	<div
+		class="container-fluid father-hoverdt shadow p-3 mb-5 bg-body rounded"
+		id="ĐIỆN THOẠI">
+		<div class="row hover-dt">
+			<div class="col-4">
+				<span><strong>HÃNG SẢN XUẤT</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="">Apple(iPhone)</a></td>
+							<td><a href="">Samsung</a></td>
+							<td><a href="">OPPO</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Xiaomi</a></td>
+							<td><a href="">Vivo</a></td>
+							<td><a href="">Asus</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Nokia</a></td>
+							<td><a href="">Masstel</a></td>
+							<td><a href="">Realme</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<span><strong>MỨC GIÁ</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="">Dưới 2 triệu</a></td>
+							<td><a href="">Từ 2-4 triệu</a></td>
+							<td><a href="">Từ 4-7 triệu</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Từ 7-13 triệu</a></td>
+							<td><a href="">Từ 13-20 triệu</a></td>
+							<td><a href="">Trên 20 triệu</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<span><strong>BÁN CHẠY NHÂT</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href=""> <img
+									src="../img/samsung/samsungA13_1.png" alt=""
+									style="max-width: 50%" /> <br /> <a href="">iPad Pro 11
+										2021 M1 Wi-Fi 128GB</a> <br /> <span>19.999.000₫</span>
+							</a></td>
+							<td><a href=""> <img
+									src="../img/samsung/samsung-galaxy-tab-s6-lite-2022-den-6.png"
+									alt="" style="max-width: 50%" /> <br /> <a href="">Samsung
+										Galaxy Tab S6 Lite 2022</a> <br /> <span>19.999.000₫</span>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- child-taplet -->
+	<div
+		class="container-fluid father-hovertablet shadow p-3 mb-5 bg-body
+      rounded">
+		<div class="row hover-dt">
+			<div class="col-4">
+				<span><strong>HÃNG SẢN XUẤT</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="">Apple(iPad)</a></td>
+							<td><a href="">Samsung</a></td>
+							<td><a href="">Masstel</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Lenovo</a></td>
+							<td><a href="">Xiaomi</a></td>
+							<td><a href="">Coolpad</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<span><strong>MỨC GIÁ</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="">Từ 2-4 triệu</a></td>
+							<td><a href="">Từ 4-7 triệu</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Từ 13-20 triệu</a></td>
+							<td><a href="">Trên 20 triệu</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<span><strong>BÁN CHẠY NHÂT</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href=""> <img
+									src="../img/samsung/samsungA13_1.png" alt=""
+									style="max-width: 50%" /> <br /> <a href="">iPad Pro 11
+										2021 M1 Wi-Fi 128GB</a> <br /> <span>19.999.000₫</span>
+							</a></td>
+							<td><a href=""> <img
+									src="../img/samsung/samsung-galaxy-tab-s6-lite-2022-den-6.png"
+									alt="" style="max-width: 50%" /> <br /> <a href="">Samsung
+										Galaxy Tab S6 Lite 2022</a> <br /> <span>19.999.000₫</span>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+	<!-- child-phụ kiện-->
+	<div
+		class="container-fluid father-hoverphukien shadow p-3 mb-5 bg-body
+      rounded">
+		<div class="row hover-dt">
+			<div class="col-4">
+				<span><strong>CÁC SẢN PHẨM PHỤ KIỆN</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href="">Bao da(ốp lưng)</a></td>
+							<td><a href="">Sạc dự phòng</a></td>
+							<td><a href="">Thẻ nhớ</a></td>
+						</tr>
+						<tr>
+							<td><a href="">Tai nghe</a></td>
+							<td><a href="">Sạc cáp</a></td>
+							<td><a href="">Miếng dán màn hình</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-4">
+				<span><strong>BÁN CHẠY NHÂT</strong></span>
+				<table class="table table-borderless">
+					<thead>
+						<tr>
+							<th scope="col"></th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td><a href=""> <img
+									src="../img/sac-du-phong/sac-du-phong-quick-charge-li-polymer-10000mah-umetravel-trip10000-xanh.webp"
+									alt="" style="max-width: 50%" /> <br /> <a href="">Pin
+										sạc dự phòng UmeTravel 10000mAh TRIP10000 Quick Charge</a> <br />
+									<span>539.000₫</span>
+							</a></td>
+							<td><a href=""> <img
+									src="../img/loa/HASP-LOA-BLUETOOTH-KARAOKE-SOUNDMAX-M22-AVT.webp"
+									alt="" style="max-width: 50%" /> <br /> <a href="">Combo
+										Loa Bluetooth Karaoke Soundmax M22 + Mic không dây</a> <br /> <span>1.845.000₫</span>
+							</a></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<!-- slider-bar -->
+	<div class="container">
+		<div id="carouselExampleControls" class="carousel slide"
+			data-bs-ride="carousel">
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="../img/slide/1.webp" class="d-block w-100" alt="..." />
+				</div>
+				<div class="carousel-item">
+					<img src="../img/slide/2.webp" class="d-block w-100" alt="..." />
+				</div>
+				<div class="carousel-item">
+					<img src="../img/slide/638083803553556798_F-C1_1200x300.webp"
+						class="d-block w-100" alt="..." />
+				</div>
+				<div class="carousel-item">
+					<img src="../img/slide/4.webp" class="d-block w-100" alt="..." />
+				</div>
+			</div>
+			<button class="carousel-control-prev" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button"
+				data-bs-target="#carouselExampleControls" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
+	</div>
+
+	<!-- content -->
+	<div class="container content">
+		<div class="row">
+			<div class="col-3 course-filter">
+				<div class="row row-filter">
+					<div class="row align-items-center">
+						<span style="font-size: 1vw; font-weight: 600;">Hãng sản
+							xuất</span>
+					</div>
+					<div class="col-6">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault" checked> <label
+								class="form-check-label" for="flexCheckDefault"> Tất cả
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Samsung </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Xiaomi </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Asus </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Masstel </label>
+						</div>
+					</div>
+					<div class="col-6">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault" checked> <label
+								class="form-check-label" for="flexCheckDefault">
+								Apple(iPhone) </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> OPPO </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Realme </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Vivo </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Nokia </label>
+						</div>
+					</div>
+				</div>
+				<div class="row row-filter">
+					<div class="row align-items-center">
+						<span style="font-size: 1vw; font-weight: 600;">Mức giá</span>
+					</div>
+					<div class="col">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault"> <label class="form-check-label"
+								for="flexCheckDefault"> Dưới 2 triệu </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Từ 2-4 triệu </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Từ 4-7 triệu </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Từ 7-13 triệu </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Trên 13 triệu </label>
+						</div>
+					</div>
+				</div>
+				<div class="row row-filter">
+					<div class="row align-items-center">
+						<span style="font-size: 1vw; font-weight: 600;">Tính năng
+							đặc biệt</span>
+					</div>
+					<div class="col">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault" checked> <label
+								class="form-check-label" for="flexCheckDefault"> Tất cả
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Bảo mật vân tay </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Nhận diện khuôn mặt </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Chống nước & bụi </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Hỗ trợ 5G </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Sạc nhanh </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Sạc không dây </label>
+						</div>
+					</div>
+				</div>
+				<div class="row row-filter">
+					<div class="row align-items-center">
+						<span style="font-size: 1vw; font-weight: 600;">Camera</span>
+					</div>
+					<div class="col">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckDefault" checked> <label
+								class="form-check-label" for="flexCheckDefault"> Tất cả
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Quay phim Slow Motion </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> AI Camera </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Hiệu ứng làm đẹp </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Zoom quang học </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Chống rung OIS </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="flexCheckChecked"> <label class="form-check-label"
+								for="flexCheckChecked"> Chụp macro </label>
+						</div>
+					</div>
+				</div>
+				<div class="row row-filter">
+					<div class="row align-items-center">
+						<span style="font-size: 1vw; font-weight: 600;">Hiệu năng
+							và pin</span>
+					</div>
+					<div class="col">
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="hieunang-1" name="hieunang-1"> <label
+								class="form-check-label" for="hieunang-1"> Dưới 3000 mah
+							</label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="hieunang-1" name="hieunang-2"> <label
+								class="form-check-label" for="hieunang-2"> Từ 3000 -
+								4000 mah </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="hieunang-3" name="hieunang-3"> <label
+								class="form-check-label" for="hieunang-3"> Pin từ 4000 -
+								5000 mah </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="hieunang-4" name="hieunang-4"> <label
+								class="form-check-label" for="hieunang-5"> Siêu trâu:
+								trên 5000 mah </label>
+						</div>
+						<div class="form-check">
+							<input class="form-check-input" type="checkbox" value=""
+								id="hieunang-5" name="hieunang-5"> <label
+								class="form-check-label" for="hieunang-5"> Chơi game /
+								Cấu hình cao </label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-9 content-sp">
+				<div
+					class="row course shadow-sm p-3 mb-5 bg-body rounded
+            content-header">
+					<div class="row content-count">
+						<h3 style="font-size: 3vw;">
+							Điện thoại <span style="font-weight: 200; font-size: 2vw">(328
+								sản phẩm)</span>
+						</h3>
+					</div>
+					<div class="row slide-parent">
+						<div class="col">
+							<button id="prev" onclick="plus(-1)">
+								<i class="fa
+                    fa-chevron-circle-left"
+									aria-hidden="true"></i>
+							</button>
+						</div>
+						<div class="col-md-auto">
+							<div class="row slide-hangdt text-center">
+								<div class="col item">
+									<img src="../img/icon/637340490193124614_iPhone-Apple@2x.webp"
+										alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637340490904217021_Samsung@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637340491304997311_Oppo@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637340491898745716_Realme@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637340491898901930_Masstel@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637340493755614653_Nokia@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637582325361253577_Xiaomi@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637705137962743415_Tecno@2x.jpg" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637732077455069770_Asus@2x.webp" alt="">
+								</div>
+								<div class="col item">
+									<img src="../img/icon/637967768466618842_vivo-icon.jpg" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="col">
+							<button id="next" onclick="plus(1)">
+								<i class="fa
+                    fa-chevron-circle-right"
+									aria-hidden="true"></i>
+							</button>
+						</div>
+					</div>
+				</div>
+				<div class="row course shadow-sm p-3 mb-5 bg-body rounded">
+					<div class="card" style="width: 18rem;">
+						<img src="../img/oppo/oppoA57_3.png" class="card-img-top"
+							alt="...">
+						<div class="card-body float-sm-start">
+							<h5 class="card-title">Samsung Galaxy Z Flip4 5G Flex Mode
+								Collection</h5>
+							<p class="card-text">
+								<box-icon name='chip'></box-icon>
+								<span>Snapdragon 8+ Gen 1</span>
+							</p>
+							<p class="card-text  ">
+								<box-icon name='mobile-alt'></box-icon>
+								<span>6.15 inch</span>
+							</p>
+							<p class="card-text  ">
+								<box-icon name='hdd'></box-icon>
+								<span>256 GB</span>
+							</p>
+							<p class="card-text  ">
+								<box-icon name='microchip'></box-icon>
+								<span>8 GB</span>
+							</p>
+							<a href="#" class="btn btn-danger">Mua ngay</a> <a href="#"
+								class="btn btn-danger show-course"><i class="fa fa-eye"
+								aria-hidden="true">Xem chi tiết</i></a>
+						</div>
+					</div>
+					<div class="row d-flex justify-content-center text-center">
+						<a href="" id="xemthem"><i class="fa fa-chevron-down"
+							aria-hidden="true"></i>&ensp;Xem thêm</a> <a href="" id="thugon"><i
+							class="fa fa-chevron-up" aria-hidden="true"></i>&ensp;Thu gọn</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer-start -->
+	<div class="container-fluid footer">
+		<div class="row">
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item">Giới thiệu về công ty</li>
+					<li class="list-group-item">Câu hỏi thường gặp mua hàng</li>
+					<li class="list-group-item">Chính sách bảo mật</li>
+					<li class="list-group-item">Quy chế hoạt động</li>
+					<li class="list-group-item">Kiểm tra hóa đơn điện tử</li>
+					<li class="list-group-item">Tra cứu thông tin bảo hành</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item">Tin tuyển dụng</li>
+					<li class="list-group-item">Tin khuyến mãi</li>
+					<li class="list-group-item">Hướng dẫn mua online</li>
+					<li class="list-group-item">Hướng dẫn mua trả góp</li>
+					<li class="list-group-item">Chính sách trả góp</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item">Hệ thống cửa hàng</li>
+					<li class="list-group-item">Hệ thống bảo hành</li>
+					<li class="list-group-item">Bán hàng doanh nghiệp</li>
+					<li class="list-group-item">Giới thiệu máy đổi trả</li>
+					<li class="list-group-item">Chính sách đổi trả</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Tư vấn mua hàng
+							(Miễn phí)</p> <a href=""
+						style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6601</a>
+						<p style="color: black; font-weight: 600;">Hỗ trợ kỹ thuật</p> <a
+						href="" style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6601</a>
+					</li>
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Hỗ trợ thanh toán:</p>
+						<ul class="list-group list-group-horizontal item-bank">
+							<li class="list-group-item"><i class="fa fa-cc-visa"
+								aria-hidden="true"></i></li>
+							<li class="list-group-item"><i class="fa fa-cc-mastercard"
+								aria-hidden="true"></i></li>
+							<li class="list-group-item"><i class="fa fa-university"
+								aria-hidden="true"></i></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Góp ý, khiếu nại
+							dịch vụ (8h00-22h00)</p> <a href=""
+						style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6616</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- footer-end -->
+</body>
+
+<!-- Swiper JS -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+	integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/home.js"></script>
+<script>
+	$(document).ready(function() {
+		$(".father-hoverdt").mouseleave(function() {
+			$(".father-hoverdt").hide();
+		});
+
+		$(".father-hovertablet").mouseleave(function() {
+			$(".father-hovertablet").hide();
+		});
+
+		$(".father-hoverphukien").mouseleave(function() {
+			$(".father-hoverphukien").hide();
+		});
+		$("#menu-user").mouseleave(function() {
+			$("#menu-user").hide();
+		});
+	});
+</script>
+
+</html>
