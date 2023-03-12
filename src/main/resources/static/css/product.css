@@ -1,0 +1,118 @@
+.content {
+    position: relative;
+    margin-top: 1rem;
+  }
+  
+  .carousel-item img {
+    max-width: 100%;
+  }
+  
+  
+  .slide-parent {
+    background-color: rgb(255, 255, 255);
+    display: grid;
+    grid-template-columns: auto auto auto;
+  }
+  
+  .slide-hangdt {
+    background-color: #ffffff;
+  }
+  
+  .slide-hangdt img {
+    max-width: 200% !important;
+    transition: transform .2s;
+  }
+  
+  .locTheoText {
+    border: 1px solid black;
+    padding: 1px 1px;
+    border-radius: 4px;
+    margin-right: 0.5em;
+    cursor: pointer;
+  }
+  
+  .slide-hangdt img:hover {
+    transform: scale(1.2);
+  }
+  
+  .slide-parent button {
+    position: absolute;
+    font-size: 2vw;
+    color: #000000;
+    cursor: pointer;
+    border: none;
+    background-color: #ffffff;
+    opacity: 0.8;
+  }
+  
+  #next {
+    right: 0;
+    margin-right: 1rem;
+  }
+  
+  #prev {
+    left: 0;
+    margin-left: 1rem;
+  }
+  .course {
+    position: relative;
+    margin: 1em 1em !important;
+    display: block;
+    justify-content: center;
+  }
+  
+  
+  .course .card {
+    margin: 1em 0.3em 1em 0.3em;
+  }
+  
+  .course .card img {
+    max-width: 80%;
+  }
+  
+  .course .card .card-body {
+    padding: 0.5em 0.5em 0.5em 0.5em;
+  }
+  
+  .course .card .card-body h5 {
+    font-size: 1em;
+    font-weight: 500;
+  }
+  
+  .show-course {
+    background-color: #ffffff !important;
+    border: none !important;
+    color: #000000 !important;
+  }
+  
+  .item img {
+    max-width: 100% !important;
+  }
+  
+  .slide-hangdt .item {
+    cursor: pointer;
+  }
+  
+  .course-filter {
+    margin: 0em 0em 0em 0em !important;
+  }
+  
+  .course-filter .item-filter {
+    font-size: 1vw;
+    font-weight: 500;
+  }
+  
+  .form-check label {
+    font-size: 1vw;
+    font-weight: 400;
+  }
+  
+  .form-check input {
+    font-size: 1vw;
+    font-weight: 400;
+  }
+  
+  .row-filter {
+    margin: 2em 0em !important;
+  }
+  

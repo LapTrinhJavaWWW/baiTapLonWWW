@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Sản phẩm</title>
+
+        <link rel="shortcut icon" href="/img/icon-login.png"/>
+
+        <!-- file css -->
+        <link rel="stylesheet" href="/css/home.css"/>
+        <!-- icon awesome -->
+        <link rel="stylesheet"
+            href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"/>
+        <!-- animate css -->
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    </head>
+
+    <body>
+        <!-- header -->
+        <div th:include="user/header.html"></div>
+        
+        <!-- slide -->
+        <div class="container mt-4 slide">
+            <swiper-container class="mySwiper" pagination="true"
+                pagination-clickable="true" navigation="true"
+                space-between="30" centered-slides="true" autoplay-delay="2500"
+                autoplay-disable-on-interaction="false">
+                <swiper-slide>
+                    <img
+                        src="https://images.fpt.shop/unsafe/fit-in/1200x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/17/638122418914846270_F-C1_1200x300@2x.png"
+                        alt=""/>
+                </swiper-slide>
+                <swiper-slide>
+                    <img
+                        src="https://images.fpt.shop/unsafe/fit-in/1200x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108673553993107_F-C1_1200x300@2x.png"
+                        alt=""/>
+                </swiper-slide>
+                <swiper-slide>
+                    <img
+                        src="https://images.fpt.shop/unsafe/fit-in/1200x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/23/638127484687826549_F-C1_1200x300.png"
+                        alt=""/>
+                </swiper-slide>
+                <swiper-slide>
+                    <img
+                        src="https://images.fpt.shop/unsafe/fit-in/1200x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/31/638108014497018540_F-C1_1200x300-1.jpg"
+                        alt=""/>
+                </swiper-slide>
+                <swiper-slide>
+                    <img
+                        src="https://images.fpt.shop/unsafe/fit-in/1200x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/15/638120822477712377_F-C1_1200x300.png"
+                        alt=""/>
+                </swiper-slide>
+            </swiper-container>
+        </div>
+        <!-- toast message login -->
+        <div class="position-fixed top-0 end-0 p-3" style="z-index: 1000" th:if="${account != null}">
+            <div id="liveToast" class="toast show" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <img src="/img/icon-login.png" class="rounded me-2" alt="..." style="max-width: 10%;">
+                <strong class="me-auto">Đăng nhập thành công</strong>
+                <small>1 mins ago</small>
+                <button type="button" class="btn-close close-toast" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body" th:text="${'Xin chào '+account.lastName+'!'}">
+                
+              </div>
+            </div>
+        </div>
+        <!-- content -->
+        <div class="container mt-4 content">
+            <div class="row">
+                <!-- fillter -->
+                <div class="col-3">
+                    <!-- hãng sản xuất -->
+                    <div>
+                        <div class="row">
+                            <span style="font-weight: 700; font-size: 1vw;
+                                opacity: 0.8">Hãng sản xuất</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx" id="cb-all-phone"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-all-phone"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Tất cả</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="#">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="apple" id="cb-apple"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-apple"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Apple</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="#">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="samsung" id="cb-samsung"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-samsung"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Samsung</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="oppo" id="cb-oppo"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-oppo"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Oppo</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="xiaomi" id="cb-xiaomi"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-xiaomi"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Xiaomi</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="vivo" id="cb-vivo"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-vivo"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Vivo</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="asus" id="cb-asus"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-asus"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Asus</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="nokia" id="cb-nokia"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-nokia"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Nokia</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="masstel" id="cb-masstel"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-masstel"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Masstel</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-6">
+                                <a href="">
+                                    <div class="checkbox-wrapper-4">
+                                        <input class="inp-cbx cb-item-phone"
+                                            data-brand="realme" id="cb-realme"
+                                            type="checkbox"/>
+                                        <label class="cbx" for="cb-realme"><span>
+                                                <svg width="12px" height="10px">
+                                                    <use xlink:href="#check-4"></use>
+                                                </svg></span><span>Realme</span></label>
+                                        <svg class="inline-svg">
+                                            <symbol id="check-4" viewbox="0 0 12
+                                                10">
+                                                <polyline points="1.5 6 4.5 9
+                                                    10.5 1"></polyline>
+                                            </symbol>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- mức giá -->
+                    <div>
+                        <div class="row">
+                            <span style="font-weight: 700; font-size: 1vw;
+                                opacity: 0.8">Mức giá</span>
+                        </div>
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-all-price"
+                                        id="cb-all-price" type="checkbox"/>
+                                    <label class="cbx" for="cb-all-price"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>Tất cả</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-item-price"
+                                        data-price="0-2" id="cb-2tr"
+                                        type="checkbox"/>
+                                    <label class="cbx" for="cb-2tr"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>0 - 2 triệu</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-item-price"
+                                        data-price="2-4" id="cb-4tr"
+                                        type="checkbox"/>
+                                    <label class="cbx" for="cb-4tr"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>2 - 4 triệu</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-item-price"
+                                        data-price="4-7" id="cb-7tr"
+                                        type="checkbox"/>
+                                    <label class="cbx" for="cb-7tr"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>4 - 7 triệu</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-item-price"
+                                        data-price="7-13" id="cb-13"
+                                        type="checkbox"/>
+                                    <label class="cbx" for="cb-13"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>7 - 13 triệu</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="">
+                                <div class="checkbox-wrapper-4">
+                                    <input class="inp-cbx cb-item-price"
+                                        data-price="13-50" id="cb-top-13"
+                                        type="checkbox"/>
+                                    <label class="cbx" for="cb-top-13"><span>
+                                            <svg width="12px" height="10px">
+                                                <use xlink:href="#check-4"></use>
+                                            </svg></span><span>Trên 13 triệu</span></label>
+                                    <svg class="inline-svg">
+                                        <symbol id="check-4" viewbox="0 0 12
+                                            10">
+                                            <polyline points="1.5 6 4.5 9 10.5
+                                                1"></polyline>
+                                        </symbol>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <!-- product -->
+                <div class="col-9">
+                    <div class="d-flex justify-content-start shadow-sm p-3 mb-2
+                        bg-body rounded">
+                        <div class="col">
+                            <div class="row" style="border-bottom: 1px solid
+                                #0200003f">
+                                <ul class="list-group list-group-horizontal">
+                                    <li class="list-group-item" style="
+                                        border: none !important;
+                                        padding: 0px 0px !important;
+                                        padding-left: 16px !important;
+                                        ">
+                                        <span style="font-size: 1.5vw;
+                                            font-weight: 600">Điện thoại</span>
+                                    </li>
+                                    <li class="list-group-item"
+                                        style="border: none !important; padding:
+                                        0px 0px !important">
+                                        <span style="font-size: 1.5vw;
+                                            font-weight: 400; color: #6c757d">(320
+                                            sản
+                                            phẩm)</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="row text-center mt-3">
+                                <div class="col-1 btn-next mt-1" style="cursor:
+                                    pointer">
+                                    <div class="row d-flex
+                                        justify-content-center">
+                                        <span class="fas fa-chevron-circle-left
+                                            btnNext"></span>
+                                    </div>
+                                </div>
+                                <div class="col-10">
+                                    <div class="row d-flex
+                                        justify-content-center">
+                                        <div class="col ic-phone"
+                                            data-icon="apple">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340490193124614_iPhone-Apple@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="samsung">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340490904217021_Samsung@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="oppo">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340491304997311_Oppo@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="xiaomi">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/6/2/637582325361253577_Xiaomi@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="vivo">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/22/637967768466618842_vivo-icon.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="asus">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/11/22/637732077455069770_Asus@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="nokia">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340493755614653_Nokia@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="masstel">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340491898901930_Masstel@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="realme">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/8/26/637340491898745716_Realme@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                        <div class="col ic-phone"
+                                            data-icon="tecno">
+                                            <img style="max-width: 80%"
+                                                src="https://images.fpt.shop/unsafe/fit-in/108x40/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2021/10/22/637705137962743415_Tecno@2x.jpg"
+                                                alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-1 btn-previous mt-1"
+                                    style="cursor: pointer">
+                                    <div class="row d-flex
+                                        justify-content-center">
+                                        <span class="fas fa-chevron-circle-right
+                                            btnPrevious"></span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row showIconClick d-flex
+                                justify-content-center d-none">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start shadow p-3 mb-5
+                        bg-body rounded mt-5">
+                        <div class="col">
+                            <div class="d-flex justify-content-end">
+                                <div class="col-2">
+                                    <i class="fas fa-th" id="displayth"
+                                        style="padding-right: 10px; opacity:
+                                        0.8;cursor: pointer;"></i>
+                                    <i class="fas fa-list-ul" id="displaylist"
+                                        style="opacity: 0.;cursor: pointer;"></i>
+                                </div>
+                            </div>
+                            <div class="container">
+                                <div class="row align-items-start justify-content-center product">
+                                    <div class="card m-1" th:each="item :${sanphams}" style="max-width: 17rem;">
+                                        <img th:src="@{${item.img[0]}}"
+                                            style="max-width: 80%"
+                                            class="rounded mx-auto d-block mt-2"
+                                            alt="..."/>
+                                        <div class="card-body">
+                                            <h5 th:text="${item.name}"
+                                                class="card-title fw-bold lh-1
+                                                font-monospace text-break"
+                                                style="font-size: 1.2vw; color:
+                                                #474c51"></h5>
+                                            <h5 th:text="${item.price}"
+                                                class="card-title rounded-pill
+                                                p-1 price"
+                                                style="max-width:
+                                                20vh;font-size: 1.2vw;color:
+                                                rgba(255, 255, 255,
+                                                0.925);background-color:
+                                                #cb1c22;text-align: center;">
+                                            </h5>
+                                            <div class="row shadow-sm p-3 mb-5
+                                                bg-body rounded"
+                                                style="margin: 0px 0px
+                                                !important;padding: 1rem 0.5rem
+                                                !important;">
+                                                <div class="row pb-2">
+                                                    <i
+                                                        style="color:
+                                                        #6c757d;cursor:
+                                                        help;font-size: 1vw;"
+                                                        class="fas
+                                                        fa-microchip">
+                                                        <i class="fw-normal
+                                                            fst-normal lh-1"
+                                                            th:text="${' '+
+                                                            item.chip}"></i>
+                                                    </i>
+                                                </div>
+                                                <div class="row pb-2">
+                                                    <i
+                                                        style="color:
+                                                        #6c757d;cursor:
+                                                        help;font-size: 1vw;"
+                                                        class="fas fa-memory">
+                                                        <i class="fw-normal
+                                                            fst-normal lh-1"
+                                                            th:text="${' ' +
+                                                            item.ram + 'GB'}"></i>
+                                                    </i>
+                                                </div>
+                                                <div class="row pb-2">
+                                                    <i
+                                                        style=" color:
+                                                        #6c757d;cursor: help;
+                                                        font-size: 1vw;"
+                                                        class="fas
+                                                        fa-mobile-alt">
+                                                        <i class="fw-normal
+                                                            fst-normal lh-1"
+                                                            th:text="${' ' +
+                                                            item.screen +
+                                                            'inch'}"></i>
+                                                    </i>
+                                                </div>
+                                                <div class="row pb-2">
+                                                    <i
+                                                        style="color:
+                                                        #6c757d;cursor:
+                                                        help;font-size: 1vw;"
+                                                        class="fas fa-hdd">
+                                                        <i class="fw-normal
+                                                            fst-normal lh-1"
+                                                            th:text="${' ' +
+                                                            item.rom + 'GB'}"></i>
+                                                    </i>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex
+                                            justify-content-center pb-3">
+                                            <div class="col-6">
+                                                <button style="font-size: 1vw"
+                                                    type="button" class="btn
+                                                    btn-danger">
+                                                    Mua ngay
+                                                </button>
+                                            </div>
+                                            <div class="col-6">
+                                                <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Xem thông tin sản phẩm tại đây">
+                                                    <button style="font-size: 1vw"
+                                                    type="button" class="btn
+                                                    btn-dark">
+                                                    Xem chi tiết
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- footer -->
+        <div th:include="user/footer.html"></div>
+    </body>
+    <!-- swiper slide -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-element-bundle.min.js"></script>
+    <!--header js -->
+    <script src="/js/header.js"></script>
+    <!-- home js -->
+    <script type="text/javascript" th:src="@{/js/user/home.js}"></script>
+    <!--block script-->
+    <script th:inline="javascript">
+        let ds = [[${ sanphams }]];
+        localStorage.setItem("ds", ds);
+       
+        $('.close-toast').click(function () {
+            $('.toast').toast('hide');
+        });
+    </script>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Manager</title>
+</head>
+<body>
+    <div class="main p-4 sm:ml-64" data-open="user" style="display: none;">
+        <nav class="flex breadcrumb pb-5" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+            </ol>
+        </nav>
+        <div class="container mx-auto place-content-center">
+            <div class="drop-shadow-lg bg-neutral-400">
+                <div class="flex justify-start pl-10 pt-5">
+                    <h1 class="text-xl font-semibold lining-nums">Danh sách người dùng</h1>
+                </div>
+                <div class="flex justify-start mt-10 pl-10 pb-5 pr-10" style="width: 100%;">
+                    <div class="relative overflow-x-auto shadow-md sm:rounded-lg w-full">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lining-nums">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        id
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        First Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Last Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Email
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Role
+                                    </th>
+                                    <th>
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBodyUser">
+                                <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700" th:each="item : ${dsuser}">
+                                    <th scope="row"class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                                    </th>
+                                    <!-- <td class="px-6 py-4">${item.firstName}
+                                    </td>
+                                    <td class="px-6 py-4">${item.lastName}
+                                    </td>
+                                    <td class="px-6 py-4">${item.email}
+                                    </td>
+                                    <td class="px-6 py-4">${item.role}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a href="#"
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-regular fa-pen-to-square"></i></a>
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        <a th:href= "@{/admin/user/delete?email=}+ ${item.email}" 
+                                            class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-solid fa-user-minus"></i></a>
+                                    </td> -->
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
