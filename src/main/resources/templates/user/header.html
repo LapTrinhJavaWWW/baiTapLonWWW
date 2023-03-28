@@ -49,8 +49,8 @@
 
                         <li class="nav-item text-center m-2">
                             <a class="nav-link d-flex justify-content-center lh-1 m-0 p-0 mt-1">
-                                <!-- <i class="fa fa-user-circle-o" aria-hidden="true"></i> -->
-                                <img src="/img/icon-login.png" class="rounded" style="max-width: 18%;">
+                                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                                <!-- <img src="/img/icon-login.png" class="rounded" style="max-width: 18%;"> -->
                             </a>
                             <div class="dropdown p-0 m-0" th:if="${account != null}">
                                 <button class="btn btn-secondary dropdown-toggle p-0 m-0" type="button" id="dropdownMenuButton1" style="background-color: #cd1818;border: none;"
@@ -177,11 +177,12 @@
         </ul>
     </div>
 
+    <!-- nav hover dien thoai -->
     <div class="container hover-dienthoai shadow p-3 mb-5 bg-body rounded">
         <div class="row">
             <div class="col-4">
                 <span style="font-size:1vw"><strong>HÃNG SẢN XUẤT</strong></span>
-                <table class="table table-borderless">
+                <table class="table table-borderless table-navhover-dienthoai">
                     <thead>
                         <tr>
                             <th scope="col"></th>
@@ -191,19 +192,19 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td onclick="fillterIconHangDT('iphone')" value="iphone"><a href="#">Apple(iPhone)</a></td>
-                            <td onclick="fillterIconHangDT('samsung')" value="samsung"><a href="#">Samsung</a></td>
-                            <td onclick="fillterIconHangDT('oppo')" value="oppo"><a href="#">OPPO</a></td>
+                            <td value="apple"><a href="#">Apple(iPhone)</a></td>
+                            <td value="samsung"><a href="#">Samsung</a></td>
+                            <td value="oppo"><a href="#">OPPO</a></td>
                         </tr>
                         <tr>
-                            <td onclick="fillterIconHangDT('xiaomi')" value="xiaomi"><a href="#">Xiaomi</a></td>
-                            <td onclick="fillterIconHangDT('vivo')" value="vivo"><a href="#">Vivo</a></td>
-                            <td onclick="fillterIconHangDT" value="asus"><a href="#">Asus</a></td>
+                            <td value="xiaomi"><a href="#">Xiaomi</a></td>
+                            <td value="vivo"><a href="#">Vivo</a></td>
+                            <td value="asus"><a href="#">Asus</a></td>
                         </tr>
                         <tr>
-                            <td onclick="fillterIconHangDT('nokia')" value="nokia"><a href="#">Nokia</a></td>
-                            <td onclick="fillterIconHangDT('masstel')" value="masstel"><a href="#">Masstel</a></td>
-                            <td onclick="fillterIconHangDT('realme')" value="realme"><a href="#">Realme</a></td>
+                            <td value="nokia"><a href="#">Nokia</a></td>
+                            <td value="masstel"><a href="#">Masstel</a></td>
+                            <td value="realme"><a href="#">Realme</a></td>
                         </tr>
                     </tbody>
                 </table>

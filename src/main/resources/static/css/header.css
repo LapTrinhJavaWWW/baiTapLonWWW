@@ -1,3 +1,6 @@
+:root{
+    --bg-header-bottom: #252525;
+}
 body{
     font-family: sans-serif !important;
 }
@@ -61,7 +64,7 @@ a {
 
 .btn-outline-success {
     font-size: 1.4em !important;
-    background-color: black !important;
+    background-color: var(--bg-header-bottom) !important;
     border: none !important;
     color: white !important;
     opacity: 0.9;
@@ -69,7 +72,7 @@ a {
 
 /* cpadding-leftss-content */
 .h-bottom {
-    background-color: #181818;
+    background-color: var(--bg-header-bottom);
     display: flex;
     justify-content: center;
     z-index: 1000;
@@ -80,7 +83,7 @@ a {
     display: flex;
     flex-direction: row;
     list-style: none;
-    background-color: #181818;
+    background-color: var(--bg-header-bottom);
     transition: all 0.5s;
     cursor: pointer;
     margin-bottom: 0.5em !important;
@@ -104,7 +107,7 @@ a {
     font-size: 1vw;
     cursor: pointer;
     text-transform: uppercase;
-    font-weight: 600;
+    font-weight: 400;
 }
 
 .h-bottom li a {
@@ -127,7 +130,7 @@ a {
 /* css hover navbar */
 .hover-dienthoai {
     position: absolute;
-    top: 14%;
+    top: 15%;
     left: 50%;
     transform: translate(-50%, 0%);
     background-color: rgb(248,249,250);
@@ -153,7 +156,7 @@ a {
 
 @keyframes listanimation {
     to {
-        top: 14%;
+        top: 15%;
     }
 
     from {

@@ -18,7 +18,7 @@ public class SecurityConfiguration {
 
         http.csrf().disable();
 
-        http.authorizeHttpRequests().requestMatchers("/home/**","/san-pham/**","/login","/logout","/css/**","/js/**","/img/**").permitAll();
+        http.authorizeHttpRequests().requestMatchers("/home/**","/san-pham/**","/register","/login","/logout","/css/**","/js/**","/img/**").permitAll();
 
         http.authorizeHttpRequests().requestMatchers("/cart/**").hasAnyAuthority("USER");
 

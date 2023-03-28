@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,16 +37,18 @@ public class ProductController {
         try {
             String userName = null;
             ds.setDs(productServiceservice.findAll());
+            model.addAttribute("sanphams", ds.getDs());
+            model.addAttribute("breadcrumb", "Điện thoại");
+            model.addAttribute("href", "/san-pham/dien-thoai");
             if (principal != null) {
                 Account account = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
                 model.addAttribute("account", account);
-                model.addAttribute("sanphams", productServiceservice.findAll());
                 return "user/product";
             }
-            model.addAttribute("sanphams", productServiceservice.findAll());
             model.addAttribute("username", userName);
             return "user/product";
         } catch (Exception e) {
+            e.printStackTrace();
             return "redirect:/403";
         }
     }
@@ -70,22 +73,6 @@ public class ProductController {
     public String refreshFillter(){
         return "redirect:/san-pham/dien-thoai";
     }
-   
-    // @RequestMapping(value = "/fillter", method = RequestMethod.GET)
-    // public ResponseEntity<List<Product>> fillterProduct(HttpServletRequest request, Model model,HttpServletResponse response) {
-    //     String brand = request.getParameter("brands");
-    //     List<String> dsbrands = brand != null ? List.of(brand.split(",")) : new ArrayList<>();
-    //     int minPrice = 0;
-    //     int maxPrice = 0;
-    //     if(request.getParameter("minPrice") == null || request.getParameter("maxPrice") == null) {
-    //         minPrice = 0;
-    //         maxPrice = 0;
-    //     }else{
-    //         minPrice = Integer.parseInt(request.getParameter("minPrice"));
-    //         maxPrice = Integer.parseInt(request.getParameter("maxPrice"));
-    //     }
-    //     return ResponseEntity.status(200).body(ds.fillter(dsbrands, minPrice, maxPrice, brand));
-    // }
 
     @PostMapping(value = "/sort/giathap")
     public ResponseEntity<?> getSortMin(HttpServletRequest request,Model model) {
@@ -108,6 +95,13 @@ public class ProductController {
         model.addAttribute("sanphams", dsFillter);
         return "user/product";
     }
+
+    @RequestMapping(value = "/dien-thoai/{nameproduct}", method = RequestMethod.GET)
+    public String searchProductPost(HttpServletRequest request, Model model,@PathVariable("nameproduct") String nameproduct) {
+        System.out.println(nameproduct);
+        return "user/viewproduct";
+    }
+
 }
 
 

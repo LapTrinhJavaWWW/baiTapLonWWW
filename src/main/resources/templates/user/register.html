@@ -47,55 +47,43 @@
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- code js -->
 <script>
-    $(document).ready(function () {
         $(document).ready(function () {
             $("#submit").click(function () {
                 register();
             })
 
-        })
+        });
+
         let firstname = document.getElementById('firstname');
         let lastname = document.getElementById('lastname');
         let email = document.getElementById('email');
         let password = document.getElementById('password');
         let regex = /^[A-Za-z0-9_!#$%&'*+\/=?`{|}~^.-]+@[A-Za-z0-9.-]+$/gm;
 
-        firstname.addEventListener('blur    ', function () {
-            validate();
-        })
-        lastname.addEventListener('blur', function () {
-            validate();
-        })
-        email.addEventListener('blur', function () {
-            validate();
-        })
-        password.addEventListener('blur', function () {
-            validate();
-        })
-
-        function validate() {
-
+        firstname.addEventListener('blur', function () {
             if (firstname.value == '') {
                 swal("Họ không được trống", "", "error");
-                return false;
             }
+        })
+        lastname.addEventListener('blur', function () {
             if (lastname.value == '') {
                 swal("Tên không được trống", "", "error");
-                return false;
             }
+        })
+        email.addEventListener('blur', function () {
             if (email.value == '') {
                 swal("Email không được trống", "", "error");
-                return false;
             }
-            if (!regex.test(email.value)) {
+           else if (!regex.test(email.value)) {
                 swal("Email không hợp lệ", "", "error");
-                return false;
             }
+        })
+
+        password.addEventListener('blur', function () {
             if (password.value == '') {
                 swal("Mật khẩu không được trống", "", "error");
-                return false;
             }
-        }
+        })
 
         function register() {
             request = {
@@ -107,7 +95,7 @@
             let myJSON = JSON.stringify(request);
             console.log(request);
             $.ajax({
-                url: "/auth/register",
+                url: "/register",
                 type: "POST",
                 data: myJSON,
                 contentType: "application/json",
@@ -116,7 +104,7 @@
 
                     let swalbuttoconfirm = document.getElementsByClassName('swal-button--confirm');
                     swalbuttoconfirm[0].addEventListener('click', function () {
-                        window.location.href = "/auth/login";
+                        window.location.href = "/login";
                     });
                 },
                 error: function (data) {
@@ -124,7 +112,7 @@
 
                     setInterval(
                         function () {
-                            window.location.href = "/auth/register";
+                            window.location.href = "/register";
                         },
                         1000
                     );
@@ -153,7 +141,7 @@
                 register();
             }
         });
-    })
+
 </script>
 
 </html>

@@ -57,3 +57,9 @@ slide.addEventListener('mouseover', (ee) => {
     ee.preventDefault();
     $(".hover-dienthoai").hide();
 });
+
+// function fillterNavHoverHangDT(value){
+//     brands.add(value);
+//     ShowClickIconPhone();
+//     AjaxFillterBrandPhone();
+// }

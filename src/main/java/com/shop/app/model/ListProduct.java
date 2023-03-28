@@ -89,4 +89,12 @@ public class ListProduct {
         });
         return list;
     }
+
+    public List<Product> sortByName() {
+        List<Product> list = new ArrayList<Product>();
+        ds.stream().sorted((p1, p2) -> p1.getName().compareTo(p2.getName())).forEach(p -> {
+            list.add(p);
+        });
+        return list;
+    }
 }

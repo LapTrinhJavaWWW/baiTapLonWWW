@@ -1,5 +1,6 @@
 package com.shop.app.model;
 
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CollectionTable;
@@ -58,4 +59,10 @@ public class Product {
 	
 	@Column(name = "bestSeller",length = 50)
 	private String bestSeller;
+
+	@Column(name = "specialfeature")
+	private List<String> specialfeature;
+
+	@Column(name = "camera")
+	private List<String> camera;
 }
