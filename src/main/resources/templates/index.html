@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ</title>
+    <!-- link-css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <!-- --- -->
+</head>
+
+<body>
+    <!-- header-start -->
+    <div class="container-fluid header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"> <img src="/img/iconFPT.png" alt="" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex col-5">
+                        <input class="form-control me-2" type="search"
+                            placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" aria-label="Search" />
+                        <button class="btn btn-outline-success" type="submit">
+                            <i class="fa fa-search" aria-hidden="true"></i>
+                        </button>
+                    </form>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item text-center"><a class="nav-link"><i class="fa fa-newspaper-o"
+                                    aria-hidden="true"></i></a> <a class="nav-link h-text" href="#">Thông tin hay</a>
+                        </li>
+                        <li class="nav-item text-center"><a class="nav-link"><i class="fa fa-file-text"
+                                    aria-hidden="true"></i></a> <a class="nav-link h-text" href="#">Thanh toán & dịch
+                                vụ</a></li>
+                        <li class="nav-item text-center"><a class="nav-link"><i class="fa fa-user-circle-o"
+                                    aria-hidden="true"></i></a> <a class="nav-link h-text user-of-me" href="#">Tài khoản
+                                của tôi</a>
+                            <!-- child-user -->
+                            <ul id="menu-user">
+                                <li><a href=""><i class="fa fa-info-circle" aria-hidden="true"></i>&ensp;Thông tin của
+                                        tôi</a></li>
+                                <li><a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>&ensp;Giỏ hàng của
+                                        tôi</a></li>
+                                <li><a href=""><i class="fa fa-sign-out" aria-hidden="true"></i>&ensp;Đăng xuất</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item text-center"><a class="nav-link"><i class="fa fa-shopping-cart"
+                                    aria-hidden="true"></i></a> <a class="nav-link h-text" href="#">Giỏ hàng</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <div class="container-fluid h-bottom">
+        <div class="d-flex justify-content-center">
+            <ul>
+                <li><a href="/dienthoai" class="nav-menu" value="dienthoai" id="dienthoai"> <i class="fa fa-mobile"
+                            aria-hidden="true"></i>&ensp;ĐIỆN
+                        THOẠI
+                    </a></li>
+                <li><a href="/tablet" class="nav-menu" value="tablet" id="tablet">
+                        <i class="fa fa-table" aria-hidden="true"></i>&ensp;TABLET
+                    </a></li>
+                <li><a href="" class="nav-menu" value="phukien" id="phukien">
+                        <i class="fa fa-headphones" aria-hidden="true"></i>&ensp;PHỤ KIỆN
+                    </a></li>
+                <li><a href="" class="nav-menu"> <i class="fa fa-repeat" aria-hidden="true"></i>&ensp;MÁY CỦ GIÁ RẺ
+                    </a></li>
+                <li><a href="" class="nav-menu"> <i class="fa fa-id-card" aria-hidden="true"></i>&ensp;SIM & THẺ
+                    </a></li>
+                <li><a href="" class="nav-menu"> <i class="fa fa-gift" aria-hidden="true"></i>&ensp;KHUYẾN MÃI
+                    </a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- header-stop -->
+    <!--menu-child-start -->
+
+    <!-- child-dienthoai -->
+    <div class="container-fluid father-hoverdt shadow p-3 mb-5 bg-body rounded" id="ĐIỆN THOẠI">
+        <div class="row hover-dt">
+            <div class="col-4">
+                <span><strong>HÃNG SẢN XUẤT</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td onclick="fillterIconHangDT('iphone')" value="iphone"><a href="#">Apple(iPhone)</a></td>
+                            <td onclick="fillterIconHangDT('samsung')" value="samsung"><a href="#">Samsung</a></td>
+                            <td onclick="fillterIconHangDT('oppo')" value="oppo"><a href="#">OPPO</a></td>
+                        </tr>
+                        <tr>
+                            <td onclick="fillterIconHangDT('xiaomi')" value="xiaomi"><a href="#">Xiaomi</a></td>
+                            <td onclick="fillterIconHangDT('vivo')" value="vivo"><a href="#">Vivo</a></td>
+                            <td onclick="fillterIconHangDT" value="asus"><a href="#">Asus</a></td>
+                        </tr>
+                        <tr>
+                            <td onclick="fillterIconHangDT('nokia')" value="nokia"><a href="#">Nokia</a></td>
+                            <td onclick="fillterIconHangDT('masstel')" value="masstel"><a href="#">Masstel</a></td>
+                            <td onclick="fillterIconHangDT('realme')" value="realme"><a href="#">Realme</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <span><strong>MỨC GIÁ</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="check-price-nav" value="0-2000000"><a href="#">Dưới 2 triệu</a></td>
+                            <td class="check-price-nav" value="2000000-4000000"><a href="#">Từ 2-4 triệu</a></td>
+                            <td class="check-price-nav" value="4000000-7000000"><a href="#">Từ 4-7 triệu</a></td>
+                        </tr>
+                        <tr>
+                            <td class="check-price-nav" value="7000000-13000000"><a href="#">Từ 7-13 triệu</a></td>
+                            <td class="check-price-nav" value="13000000-50000000"><a href="#">Trên 13 triệu</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <span><strong>BÁN CHẠY NHẤT</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+							<td><a href=""> <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/5/638058527736303163_ipad-pro-11-m1-wifi-bac-1.jpg" alt="" style="max-width: 50%" />
+									<br /> <a href="">iPad Pro 11
+										2021 M1 Wi-Fi 128GB</a> <br /> <span>19.999.000₫</span>
+								</a></td>
+							<td><a href=""> <img src="https://images.fpt.shop/unsafe/fit-in/585x390/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/3/21/637834691340604790_samsung-galaxy-a13-den-1.jpg" alt=""
+										style="max-width: 50%" /> <br /> <a href="">Samsung
+										Galaxy Tab S6 Lite 2022</a> <br /> <span>19.999.000₫</span>
+								</a></td>
+						</tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- child-taplet -->
+    <div class="container-fluid father-hovertablet shadow p-3 mb-5 bg-body
+			rounded">
+        <div class="row hover-dt">
+            <div class="col-4">
+                <span><strong>HÃNG SẢN XUẤT</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">Apple(iPad)</a></td>
+                            <td><a href="">Samsung</a></td>
+                            <td><a href="">Masstel</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Lenovo</a></td>
+                            <td><a href="">Xiaomi</a></td>
+                            <td><a href="">Coolpad</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <span><strong>MỨC GIÁ</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">Từ 2-4 triệu</a></td>
+                            <td><a href="">Từ 4-7 triệu</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Từ 13-20 triệu</a></td>
+                            <td><a href="">Trên 20 triệu</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <span><strong>BÁN CHẠY NHÂT</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href=""> <img src="/img/samsung/samsungA13_1.png" alt="" style="max-width: 50%" />
+                                    <br /> <a href="">iPad Pro 11
+                                        2021 M1 Wi-Fi 128GB</a> <br /> <span>19.999.000₫</span>
+                                </a></td>
+                            <td><a href=""> <img src="/img/samsung/samsung-galaxy-tab-s6-lite-2022-den-6.png" alt=""
+                                        style="max-width: 50%" /> <br /> <a href="">Samsung
+                                        Galaxy Tab S6 Lite 2022</a> <br /> <span>19.999.000₫</span>
+                                </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- child-phụ kiện-->
+    <div class="container-fluid father-hoverphukien shadow p-3 mb-5 bg-body
+			rounded">
+        <div class="row hover-dt">
+            <div class="col-4">
+                <span><strong>CÁC SẢN PHẨM PHỤ KIỆN</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="">Bao da(ốp lưng)</a></td>
+                            <td><a href="">Sạc dự phòng</a></td>
+                            <td><a href="">Thẻ nhớ</a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="">Tai nghe</a></td>
+                            <td><a href="">Sạc cáp</a></td>
+                            <td><a href="">Miếng dán màn hình</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="col-4">
+                <span><strong>BÁN CHẠY NHÂT</strong></span>
+                <table class="table table-borderless">
+                    <thead>
+                        <tr>
+                            <th scope="col"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href=""> <img
+                                        src="https://images.fpt.shop/unsafe/fit-in/750x500/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/9/5/637979820693210196_pin-sac-du-phong-quick-charge-li-polymer-10000mah-umetravel-trip10000-den.jpg"
+                                        alt="" style="max-width: 50%" /> <br /> <a href="">Pin
+                                        sạc dự phòng UmeTravel 10000mAh TRIP10000 Quick Charge</a> <br />
+                                    <span>539.000₫</span>
+                                </a></td>
+                            <td><a href=""> <img src="https://images.fpt.shop/unsafe/fit-in/750x500/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/23/637968458856440391_HASP-LOA-BLUETOOTH-KARAOKE-SOUNDMAX-M22-AVT.jpg" alt=""
+                                        style="max-width: 50%" /> <br /> <a href="">Combo
+                                        Loa Bluetooth Karaoke Soundmax M22 + Mic không dây</a> <br />
+                                    <span>1.845.000₫</span>
+                                </a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="sale-cd text-center">
+        <img src="https://images.fpt.shop/unsafe/fit-in/filters:quality(80):fill(transparent)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108864980965235_top-head.png"
+            alt="">
+    </div>
+    <!-- slider-bar -->
+    <div class="container slide-bar shadow p-1 mb-5 bg-body rounded">
+        <div class="row">
+            <div class="col-8">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner" style="border-radius: 10px;">
+                        <div class="carousel-item active">
+                            <img src="https://images.fpt.shop/unsafe/fit-in/800x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108625907590998_F-H1_800x300.png"
+                                class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.fpt.shop/unsafe/fit-in/800x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/4/638111166537069454_F-H1_800x300.png"
+                                class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.fpt.shop/unsafe/fit-in/800x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108073687218496_F-H1_800x300.png"
+                                class="d-block w-100" alt="..." />
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://images.fpt.shop/unsafe/fit-in/800x300/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/4/638111013816195896_F-H1_800x300.jpg"
+                                class="d-block w-100" alt="..." />
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+            <div class="col-4">
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/385x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108559903297413_F-H2_385x100_1.png"
+                            class="d-block w-99 mb-2" alt="..." />
+                    </div>
+                </div>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/385x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108452578436423_F-H2_385x100.png"
+                            class="d-block w-99 mb-2" alt="..." />
+                    </div>
+                </div>
+                <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+                        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/385x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108559903297413_F-H2_385x100_1.png"
+                            class="d-block w-99 mb-2" alt="..." />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container" style="margin-bottom: 2em;">
+        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/1200x100/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108497085689557_H7- 1200x100.png"
+        class="d-block w-100" alt="..." />
+    </div>
+    <div class="container shadow p-3 mb-5 bg-body rounded">
+        <div class="row">
+            <h5 style="font-weight: 600 !important;font-size: 2.5vh;">ĐIỆN THOẠI NỔI BẬC</h5>
+        </div>
+        <div class="row course products">
+            <div class="card" style="width: 18rem;" th:each="item : ${sanphamdienthoais}">
+                <img th:src="@{${item.dsImg[0]}}" class="card-img-top" alt="...">
+                <div class="card-body float-sm-start">
+                    <h5 class="card-title" th:text="${item.tenSanpham}"></h5>
+                    <i>
+                        <h5 class="card-title" th:text="${item.gia}"></h5>
+                    </i>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='chip'></box-icon>
+                        <span th:text="${item.chip}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='mobile-alt'></box-icon>
+                        <span th:text="${item.manHinh +' inch'}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='hdd'></box-icon>
+                        <span th:text="${item.rom + ' GB'}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='microchip'></box-icon>
+                        <span th:text="${item.ram + ' GB'}"></span>
+                    </p>
+                    <a href="#" class="btn btn-danger">Mua ngay</a> <a
+                        th:href="@{'/show/' + ${item.tenSanpham}}" class="btn btn-danger show-course"><i
+                            class="fa fa-eye" aria-hidden="true">Xem chi tiết</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/18/638096470799925981_F-H5_1200x200.png"
+        class="d-block w-100" alt="..." />
+    </div>
+    <div class="container shadow p-3 mb-5 bg-body rounded" style="margin-top: 2em;">
+        <div class="row">
+            <h5 style="font-weight: 600 !important;font-size: 2.5vh;">TABLET BÁN CHẠY</h5>
+        </div> 
+        <div class="row course products">
+            <div class="card" style="width: 18rem;" th:each="item,iterStat : ${sanphamtablets}">
+                <img th:src="@{${item.dsImg[0]}}" class="card-img-top" alt="...">
+                <div class="card-body float-sm-start">
+                    <h5 class="card-title" th:text="${item.tenSanpham}"></h5>
+                    <i>
+                        <h5 class="card-title" th:text="${item.gia}"></h5>
+                    </i>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='chip'></box-icon>
+                        <span th:text="${item.chip}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='mobile-alt'></box-icon>
+                        <span th:text="${item.manHinh +' inch'}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='hdd'></box-icon>
+                        <span th:text="${item.rom + ' GB'}"></span>
+                    </p>
+                    <p class="card-text d-flex align-items-center" style="margin-left: 0rem !important;">
+                        <box-icon name='microchip'></box-icon>
+                        <span th:text="${item.ram + ' GB'}"></span>
+                    </p>
+                    <a href="#" class="btn btn-danger">Mua ngay</a> <a
+                        th:href="@{'/show/' + ${item.tenSanpham}}" class="btn btn-danger show-course"><i
+                            class="fa fa-eye" aria-hidden="true">Xem chi tiết</i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container" style="margin-bottom: 2em;">
+        <img style="border-radius: 10px;" src="https://images.fpt.shop/unsafe/fit-in/1200x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108624627380048_H5_1200x200.png"
+        class="d-block w-100" alt="..." />
+    </div>
+    <!-- footer-start -->
+	<div class="container-fluid footer">
+		<div class="row">
+			<div class="col" style="margin-top: 1em !important;margin-bottom: 1em !important;">
+				<ul class="list-group">
+					<li class="list-group-item">Giới thiệu về công ty</li>
+					<li class="list-group-item">Câu hỏi thường gặp mua hàng</li>
+					<li class="list-group-item">Chính sách bảo mật</li>
+					<li class="list-group-item">Quy chế hoạt động</li>
+					<li class="list-group-item">Kiểm tra hóa đơn điện tử</li>
+					<li class="list-group-item">Tra cứu thông tin bảo hành</li>
+				</ul>
+			</div>
+			<div class="col" style="margin-top: 1em !important;margin-bottom: 1em !important;">
+				<ul class="list-group">
+					<li class="list-group-item">Tin tuyển dụng</li>
+					<li class="list-group-item">Tin khuyến mãi</li>
+					<li class="list-group-item">Hướng dẫn mua online</li>
+					<li class="list-group-item">Hướng dẫn mua trả góp</li>
+					<li class="list-group-item">Chính sách trả góp</li>
+				</ul>
+			</div>
+			<div class="col" style="margin-top: 1em !important;margin-bottom: 1em !important;">
+				<ul class="list-group">
+					<li class="list-group-item">Hệ thống cửa hàng</li>
+					<li class="list-group-item">Hệ thống bảo hành</li>
+					<li class="list-group-item">Bán hàng doanh nghiệp</li>
+					<li class="list-group-item">Giới thiệu máy đổi trả</li>
+					<li class="list-group-item">Chính sách đổi trả</li>
+				</ul>
+			</div>
+			<div class="col" style="margin-top: 1em !important;margin-bottom: 1em !important;">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Tư vấn mua hàng
+							(Miễn phí)</p> <a href="" style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6601</a>
+						<p style="color: black; font-weight: 600;">Hỗ trợ kỹ thuật</p> <a href=""
+							style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6601</a>
+					</li>
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Hỗ trợ thanh toán:</p>
+						<ul class="list-group list-group-horizontal item-bank">
+							<li class="list-group-item"><i class="fa fa-cc-visa" aria-hidden="true"></i></li>
+							<li class="list-group-item"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></li>
+							<li class="list-group-item"><i class="fa fa-university" aria-hidden="true"></i></li>
+						</ul>
+					</li>
+				</ul>
+			</div>
+			<div class="col" style="margin-top: 1em !important;margin-bottom: 1em !important;">
+				<ul class="list-group">
+					<li class="list-group-item">
+						<p style="color: black; font-weight: 600;">Góp ý, khiếu nại
+							dịch vụ (8h00-22h00)</p> <a href=""
+							style="color: red; font-size: 1.5rem; font-weight: 600;">1800
+							6616</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<!-- footer-end -->
+</body>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/index.js" th:inline="javascript"></script>
+<script>
+    $(document).ready(function () {
+
+        $(".father-hoverdt").mouseleave(function () {
+            $(".father-hoverdt").hide();
+        });
+
+        $(".father-hovertablet").mouseleave(function () {
+            $(".father-hovertablet").hide();
+        });
+
+        $(".father-hoverphukien").mouseleave(function () {
+            $(".father-hoverphukien").hide();
+        });
+
+        $("#menu-user").mouseleave(function () {
+            $("#menu-user").hide();
+        });
+    });
+</script>
+
+</html>

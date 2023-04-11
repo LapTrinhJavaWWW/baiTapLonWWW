@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- link-css -->
+  <!-- link-css -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <link rel="stylesheet" href="../css/news.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
+  <!-- --- -->
+</head>
+
+<body>
+  <!-- header-start -->
+  <div class="container-fluid header">
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+          <img src="../img/iconFPT.png" alt="" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <form class="d-flex col-5">
+            <input class="form-control me-2" type="search"
+              placeholder="Nhập tên điện thoại, máy tính, phụ kiện... cần tìm" aria-label="Search" />
+            <button class="btn btn-outline-success" type="submit">
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </button>
+          </form>
+
+          <ul class="navbar-nav">
+            <li class="nav-item text-center">
+              <a class="nav-link"><i class="fa fa-newspaper-o" aria-hidden="true"></i></a>
+              <a class="nav-link h-text" href="#">Thông tin hay</a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link"><i class="fa fa-file-text" aria-hidden="true"></i></a>
+              <a class="nav-link h-text" href="#">Thanh toán & dịch vụ</a>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a>
+              <a class="nav-link h-text user-of-me" href="#">Tài khoản của tôi</a>
+              <!-- child-user -->
+              <ul id="menu-user">
+                <li><a href=""><i class="fa fa-info-circle" aria-hidden="true"></i>&ensp;Thông tin của tôi</a></li>
+                <li><a href=""><i class="fa fa-shopping-cart" aria-hidden="true"></i>&ensp;Giỏ hàng của tôi</a></li>
+                <li><a href=""><i class="fa fa-sign-out" aria-hidden="true"></i>&ensp;Đăng xuất</a></li>
+              </ul>
+            </li>
+            <li class="nav-item text-center">
+              <a class="nav-link"><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
+              <a class="nav-link h-text" href="#">Giỏ hàng</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <div class="container-fluid h-bottom">
+    <div class="d-flex justify-content-center">
+      <ul>
+        <li>
+          <a href="/" class="nav-menu" value="dienthoai" id="dienthoai">
+            <i class="fa fa-mobile" aria-hidden="true"></i>&ensp;ĐIỆN THOẠI
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-menu" value="tablet" id="tablet">
+            <i class="fa fa-table" aria-hidden="true"></i>&ensp;TABLET
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-menu" value="phukien" id="phukien">
+            <i class="fa fa-headphones" aria-hidden="true"></i>&ensp;PHỤ KIỆN
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-menu">
+            <i class="fa fa-repeat" aria-hidden="true"></i>&ensp;MÁY CỦ GIÁ RẺ
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-menu">
+            <i class="fa fa-id-card" aria-hidden="true"></i>&ensp;SIM & THẺ
+          </a>
+        </li>
+        <li>
+          <a href="" class="nav-menu">
+            <i class="fa fa-gift" aria-hidden="true"></i>&ensp;KHUYẾN MÃI
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- header-stop -->
+  <!--menu-child-start -->
+
+  <!-- child-dienthoai -->
+  <div class="container-fluid father-hoverdt shadow p-3 mb-5 bg-body rounded" id="ĐIỆN THOẠI">
+    <div class="row hover-dt">
+      <div class="col-4">
+        <span><strong>HÃNG SẢN XUẤT</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">Apple(iPhone)</a></td>
+              <td><a href="">Samsung</a></td>
+              <td><a href="">OPPO</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Xiaomi</a></td>
+              <td><a href="">Vivo</a></td>
+              <td><a href="">Asus</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Nokia</a></td>
+              <td><a href="">Masstel</a></td>
+              <td><a href="">Realme</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <span><strong>MỨC GIÁ</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">Dưới 2 triệu</a></td>
+              <td><a href="">Từ 2-4 triệu</a></td>
+              <td><a href="">Từ 4-7 triệu</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Từ 7-13 triệu</a></td>
+              <td><a href="">Từ 13-20 triệu</a></td>
+              <td><a href="">Trên 20 triệu</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <span><strong>BÁN CHẠY NHÂT</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="">
+                  <img src="../img/samsung/samsungA13_1.png" alt="" style="max-width: 50%" />
+                  <br />
+                  <a href="">iPad Pro 11 2021 M1 Wi-Fi 128GB</a>
+                  <br />
+                  <span>19.999.000₫</span>
+                </a>
+              </td>
+              <td>
+                <a href="">
+                  <img src="../img/samsung/samsung-galaxy-tab-s6-lite-2022-den-6.png" alt="" style="max-width: 50%" />
+                  <br />
+                  <a href="">Samsung Galaxy Tab S6 Lite 2022</a>
+                  <br />
+                  <span>19.999.000₫</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- child-taplet -->
+  <div class="container-fluid father-hovertablet shadow p-3 mb-5 bg-body
+      rounded">
+    <div class="row hover-dt">
+      <div class="col-4">
+        <span><strong>HÃNG SẢN XUẤT</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">Apple(iPad)</a></td>
+              <td><a href="">Samsung</a></td>
+              <td><a href="">Masstel</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Lenovo</a></td>
+              <td><a href="">Xiaomi</a></td>
+              <td><a href="">Coolpad</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <span><strong>MỨC GIÁ</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">Từ 2-4 triệu</a></td>
+              <td><a href="">Từ 4-7 triệu</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Từ 13-20 triệu</a></td>
+              <td><a href="">Trên 20 triệu</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <span><strong>BÁN CHẠY NHÂT</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="">
+                  <img src="../img/samsung/samsungA13_1.png" alt="" style="max-width: 50%" />
+                  <br />
+                  <a href="">iPad Pro 11 2021 M1 Wi-Fi 128GB</a>
+                  <br />
+                  <span>19.999.000₫</span>
+                </a>
+              </td>
+              <td>
+                <a href="">
+                  <img src="../img/samsung/samsung-galaxy-tab-s6-lite-2022-den-6.png" alt="" style="max-width: 50%" />
+                  <br />
+                  <a href="">Samsung Galaxy Tab S6 Lite 2022</a>
+                  <br />
+                  <span>19.999.000₫</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- child-phụ kiện-->
+  <div class="container-fluid father-hoverphukien shadow p-3 mb-5 bg-body
+      rounded">
+    <div class="row hover-dt">
+      <div class="col-4">
+        <span><strong>CÁC SẢN PHẨM PHỤ KIỆN</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><a href="">Bao da(ốp lưng)</a></td>
+              <td><a href="">Sạc dự phòng</a></td>
+              <td><a href="">Thẻ nhớ</a></td>
+            </tr>
+            <tr>
+              <td><a href="">Tai nghe</a></td>
+              <td><a href="">Sạc cáp</a></td>
+              <td><a href="">Miếng dán màn hình</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-4">
+        <span><strong>BÁN CHẠY NHÂT</strong></span>
+        <table class="table table-borderless">
+          <thead>
+            <tr>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="">
+                  <img
+                    src="../img/sac-du-phong/sac-du-phong-quick-charge-li-polymer-10000mah-umetravel-trip10000-xanh.webp"
+                    alt="" style="max-width: 50%" />
+                  <br />
+                  <a href="">Pin sạc dự phòng UmeTravel 10000mAh TRIP10000
+                    Quick
+                    Charge</a>
+                  <br />
+                  <span>539.000₫</span>
+                </a>
+              </td>
+              <td>
+                <a href="">
+                  <img src="../img/loa/HASP-LOA-BLUETOOTH-KARAOKE-SOUNDMAX-M22-AVT.webp" alt=""
+                    style="max-width: 50%" />
+                  <br />
+                  <a href="">Combo Loa Bluetooth Karaoke Soundmax M22 + Mic
+                    không
+                    dây</a>
+                  <br />
+                  <span>1.845.000₫</span>
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  <!-- header-stop -->
+  
+  <!-- content-news -->
+
+  <!-- news-navbar -->
+  <div class="container header-news">
+    <h1 style="color: #555555;">TIN MỚI</h1>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav d-flex justify-content-start">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">TIN MỚI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" style="color: black;">KHUYẾN MÃI</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">THỦ THUẬT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">FOR GAME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">VIDEO-HOT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">ĐÁNH GIÁ-TƯ VẤN</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">APP & GAME</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">SỰ KIỆN</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+  <!-- new-conten -->
+  <div class="container content-news">
+    <div class="row">
+      <div class="col-8 shadow p-3 mb-5 bg-body rounded" style="margin-right: 1rem;margin-left: 1rem;margin-top: 1rem;">
+        <div class="row d-flex justify-content-start">
+          <div class="col-7">
+            <div class="card" style="width: 100%;">
+              <img
+                src="https://images.fpt.shop/unsafe/fit-in/490x326/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/7/638086911371646304_5-tai-nghe-bluetooth-gia-tot-tet-2023-1.jpg"
+                class="card-img-top" alt="...">
+              <div class="card-body">
+                <h5 class="card-title" style="font-size: 1.5vw;">Top 5 tai nghe Bluetooth giá tốt, nên sắm dịp Tết
+                  Nguyên Đán 2023</h5>
+                <p class="card-text" style="font-size: 1vw;">0-6 giờ trước</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-5">
+            <div class="row">
+              <div class="col-5">
+                <img style="max-width: 200% !important;"
+                  src="https://images.fpt.shop/unsafe/fit-in/120x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/5/638085359695478629_top-5-man-hinh-gaming-dau-nam-2023-0.jpg"
+                  alt="">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <h3 style="font-size: 1vw;">Top 5 màn hình xuất sắc, khơi nguồn cảm hứng cho các game thủ đầu 2023
+                  </h3>
+                  <p style="font-size: 1vw;">0-2 ngày trước</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <img style="max-width: 200% !important;"
+                  src="https://images.fpt.shop/unsafe/fit-in/120x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/5/638085359695478629_top-5-man-hinh-gaming-dau-nam-2023-0.jpg"
+                  alt="">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <h3 style="font-size: 1vw;">Top 5 màn hình xuất sắc, khơi nguồn cảm hứng cho các game thủ đầu 2023
+                  </h3>
+                  <p style="font-size: 1vw;">0-2 ngày trước</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <img style="max-width: 200% !important;"
+                  src="https://images.fpt.shop/unsafe/fit-in/120x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/5/638085359695478629_top-5-man-hinh-gaming-dau-nam-2023-0.jpg"
+                  alt="">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <h3 style="font-size: 1vw;">Top 5 màn hình xuất sắc, khơi nguồn cảm hứng cho các game thủ đầu 2023
+                  </h3>
+                  <p style="font-size: 1vw;">0-2 ngày trước</p>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-5">
+                <img style="max-width: 200% !important;"
+                  src="https://images.fpt.shop/unsafe/fit-in/120x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/5/638085359695478629_top-5-man-hinh-gaming-dau-nam-2023-0.jpg"
+                  alt="">
+              </div>
+              <div class="col-7">
+                <div class="row">
+                  <h3 style="font-size: 1vw;">Top 5 màn hình xuất sắc, khơi nguồn cảm hứng cho các game thủ đầu 2023
+                  </h3>
+                  <p style="font-size: 1vw;">0-2 ngày trước</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 shadow p-3 mb-5 bg-body rounded" style="margin-right: 1rem;margin-left: 1rem;margin-top: 1rem;">
+        <div class="row" style="border-bottom: 1px solid #555555;">
+          <h4 style="font-size: 1.5vw;">Xem nhiều</h4>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number">
+            <span>1</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">iPhone 15 và iPhone 15 Plus có thể được trang bị camera 48MP mới
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number" style="background-color: rgb(120, 119, 119);">
+            <span>2</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">Rò rỉ ảnh báo chí chính thức của Samsung Galaxy S23 và Galaxy
+              S23 Ultra
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number" style="background-color: #ccc;">
+            <span>3</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">Tin tức mới nhất về giá bán Samsung Galaxy S23 series sắp ra mắt
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number" style="background-color: #ccc;">
+            <span>4</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">Những tính năng hữu ích của iOS vẫn chưa có sẵn cho người dùng
+              toàn cầu
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number" style="background-color: #ccc;">
+            <span>5</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">Bạn đã biết cúng ông Công ông Táo vào ngày nào trong năm 2023
+              chưa?
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-2" id="news-number" style="background-color: #ccc;">
+            <span>6</span>
+          </div>
+          <div class="col-10 ">
+            <p style="font-size: 1vw;font-weight: 400;">Xiaomi Redmi 12C âm thầm ra mắt với chip Helio G85, pin 5000 mAh
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-8 shadow p-3 mb-5 bg-body rounded" style="margin-right: 1rem;margin-left: 1rem;margin-top: 1rem;">
+        <div class="row" style="margin-bottom: 1em;">
+          <div class="col-4">
+            <img style="max-width: 100%;"
+              src="https://images.fpt.shop/unsafe/fit-in/300x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/8/638087552605240708_oppo-a78-5g-cover.jpeg"
+              alt="">
+          </div>
+          <div class="col-8">
+            <a href="">Tin mới</a>
+            <h3 style="font-size: 1.8vw;">OPPO A78 5G với chip Dimensity 700 và camera kép 50MP ra mắt</h3>
+            <span style="font-size: 1vw;">1 giờ trước</span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 1em;">
+          <div class="col-4">
+            <img style="max-width: 100%;"
+              src="https://images.fpt.shop/unsafe/fit-in/300x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/21/638072615094451418_fade-valorant-5.jpg"
+              alt="">
+          </div>
+          <div class="col-8">
+            <a href="">App & game</a>
+            <h3 style="font-size: 1.8vw;">Hướng dẫn chơi Fade Valorant: Tổng quan, bộ kỹ năng cần nắm để chơi tốt</h3>
+            <span style="font-size: 1vw;">11 giờ trước</span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 1em;">
+          <div class="col-4">
+            <img style="max-width: 100%;"
+              src="https://images.fpt.shop/unsafe/fit-in/300x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/11/30/638053782778263566_amd-ryzen-7-5800u.jpg"
+              alt="">
+          </div>
+          <div class="col-8">
+            <a href="">App & game</a>
+            <h3 style="font-size: 1.8vw;">AMD Ryzen R7 5800U là gì? Sức mạnh như thế nào? </h3>
+            <span style="font-size: 1vw;">11 giờ trước</span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 1em;">
+          <div class="col-4">
+            <img style="max-width: 100%;"
+              src="https://images.fpt.shop/unsafe/fit-in/300x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/7/638087238522963048_oppo-a78-5g-cau-hinh-cover.jpg"
+              alt="">
+          </div>
+          <div class="col-8">
+            <a href="">Tin mới</a>
+            <h3 style="font-size: 1.8vw;">OPPO A78 5G lộ ngày ra mắt và cấu hình chi tiết</h3>
+            <span style="font-size: 1vw;">11 giờ trước</span>
+          </div>
+        </div>
+        <div class="row" style="margin-bottom: 1em;">
+          <div class="col-4">
+            <img style="max-width: 100%;"
+              src="https://images.fpt.shop/unsafe/fit-in/300x200/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/1/638055125900186307_intel-pentium-n6000.jpg"
+              alt="">
+          </div>
+          <div class="col-8">
+            <a href="">For game</a>
+            <h3 style="font-size: 1.8vw;">Intel Pentium N6000 là gì? Đánh giá bộ vi xử lý Intel Pentium N6000</h3>
+            <span style="font-size: 1vw;">11 giờ trước</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-3 shadow p-3 mb-5 bg-body rounded" style="margin-right: 1rem;margin-left: 1rem;margin-top: 1rem;">
+        <div class="row news-item-spmoi" style="border-bottom: 1px solid #555555;margin-bottom: 1rem;">
+          <h4 style="font-size: 1.5vw;">Sản phẩm mới</h4>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/9//637800424689194351_samsung-galaxy-s22-ultra-do-dd.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23 Ultra</h3>
+            <a href="">53 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/9//637800429539478800_samsung-galaxy-s22-plus-xanh-dd.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23 Plus</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/10//637800498484893706_samsung-galaxy-s22-den-12.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/7//638007285202545738_iphone-14-pro-max-dd-bh.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">iPhone 14 Pro Max 128GB</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/7//638007285202545738_iphone-14-plus-dd-bh.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">iPhone 14 Plus 128GB</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/9//637800424689194351_samsung-galaxy-s22-ultra-do-dd.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23 Ultra</h3>
+            <a href="">53 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/9//637800429539478800_samsung-galaxy-s22-plus-xanh-dd.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23 Plus</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/2/10//637800498484893706_samsung-galaxy-s22-den-12.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">Samsung Galaxy S23</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/7//638007285202545738_iphone-14-pro-max-dd-bh.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">iPhone 14 Pro Max 128GB</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+        <div class="row news-item-spmoi" style="margin-bottom: 1rem;">
+          <div class="col-3">
+            <img
+              src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/10/7//638007285202545738_iphone-14-plus-dd-bh.jpg"
+              alt="">
+          </div>
+          <div class="col-9 ">
+            <h3 style="font-size: 1vw;font-weight: 400;">iPhone 14 Plus 128GB</h3>
+            <a href="">87 bài viết</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- footer-start -->
+  <div class="container-fluid footer">
+    <div class="row">
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">Giới thiệu về công ty</li>
+          <li class="list-group-item">Câu hỏi thường gặp mua hàng</li>
+          <li class="list-group-item">Chính sách bảo mật</li>
+          <li class="list-group-item">Quy chế hoạt động</li>
+          <li class="list-group-item">Kiểm tra hóa đơn điện tử</li>
+          <li class="list-group-item">Tra cứu thông tin bảo hành</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">Tin tuyển dụng</li>
+          <li class="list-group-item">Tin khuyến mãi</li>
+          <li class="list-group-item">Hướng dẫn mua online</li>
+          <li class="list-group-item">Hướng dẫn mua trả góp</li>
+          <li class="list-group-item">Chính sách trả góp</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">Hệ thống cửa hàng</li>
+          <li class="list-group-item">Hệ thống bảo hành</li>
+          <li class="list-group-item">Bán hàng doanh nghiệp</li>
+          <li class="list-group-item">Giới thiệu máy đổi trả</li>
+          <li class="list-group-item">Chính sách đổi trả</li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <p style="color: black;font-weight: 600;">Tư vấn mua hàng (Miễn phí)</p>
+            <a href="" style="color: red;font-size: 1.5rem;font-weight: 600;">1800 6601</a>
+            <p style="color: black;font-weight: 600;">Hỗ trợ kỹ thuật</p>
+            <a href="" style="color: red;font-size: 1.5rem;font-weight: 600;">1800 6601</a>
+          </li>
+          <li class="list-group-item">
+            <p style="color: black;font-weight: 600;">Hỗ trợ thanh toán:</p>
+            <ul class="list-group list-group-horizontal item-bank">
+              <li class="list-group-item"><i class="fa fa-cc-visa" aria-hidden="true"></i></li>
+              <li class="list-group-item"><i class="fa fa-cc-mastercard" aria-hidden="true"></i></li>
+              <li class="list-group-item"><i class="fa fa-university" aria-hidden="true"></i></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">
+            <p style="color: black;font-weight: 600;">Góp ý, khiếu nại dịch vụ (8h00-22h00)</p>
+            <a href="" style="color: red;font-size: 1.5rem;font-weight: 600;">1800 6616</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- footer-end -->
+</body>
+<!-- Swiper JS -->
+<script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+  integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+  integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="../js/news.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".father-hoverdt").mouseleave(function () {
+      $(".father-hoverdt").hide();
+    });
+
+    $(".father-hovertablet").mouseleave(function () {
+      $(".father-hovertablet").hide();
+    });
+
+    $(".father-hoverphukien").mouseleave(function () {
+      $(".father-hoverphukien").hide();
+    });
+
+    $("#menu-user").mouseleave(function () {
+      $("#menu-user").hide();
+    });
+  });
+</script>
+
+</html>
