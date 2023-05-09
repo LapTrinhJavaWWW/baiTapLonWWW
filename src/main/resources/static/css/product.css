@@ -1,12 +1,11 @@
-html,
-body {
-  position: relative;
-  height: 100%;
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
 body {
   background: #eee;
-  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 14px;
   color: #000;
   margin: 0;
@@ -72,7 +71,7 @@ swiper-slide img {
   width: 18px;
   height: 18px;
   border-radius: 4px;
-  transform: scale(1);
+  transform: scale(0.5);
   border: 1px solid #cccfdb;
   transition: all 0.2s ease;
   box-shadow: 0 1px 1px rgba(0, 16, 75, 0.05);

@@ -2,29 +2,28 @@ let btnops = document.querySelectorAll('.btnop');
 let mains = document.querySelectorAll('.main');
 let mainParent = document.querySelector('.main-parent');
 
-let dataOpen = "";
-let breadcrumbValue = "";
+let dataOpen = '';
+let breadcrumbValue = '';
 
 btnops.forEach((btnop, index) => {
-    btnop.addEventListener('click', () => {
-        mainParent.style.display = 'none';
-        mains.forEach(main => {
-            main.style.display = 'none';
-        });
-        mains[index].style.display = 'block';
-        dataOpen = btnop.getAttribute('data-openbtn');
-        breadcrumbValue = dataOpen;
-        GenarateBreadcrumb(breadcrumbValue);
-        ajaxOpentag();
-    });
+   btnop.addEventListener('click', () => {
+      mainParent.style.display = 'none';
+      mains.forEach((main) => {
+         main.style.display = 'none';
+      });
+      mains[index].style.display = 'block';
+      dataOpen = btnop.getAttribute('data-openbtn');
+      breadcrumbValue = dataOpen;
+      GenarateBreadcrumb(breadcrumbValue);
+      ajaxOpentag();
+   });
 });
 
 function GenarateBreadcrumb(data) {
-    let html = "";
-    $('.breadcrumb').html(html);
+   let html = '';
+   $('.breadcrumb').html(html);
 
-    html =
-        `
+   html = `
             <ol class="inline-flex items-center space-x-1 md:space-x-3">
                 <li class="inline-flex items-center text-slate-700">
                     <a href="/admin" class="inline-flex items-center text-sm font-medium hover:text-pink-500">
@@ -40,32 +39,31 @@ function GenarateBreadcrumb(data) {
                 </li>
             </ol>
     `;
-    $('.breadcrumb').html(html);
+   $('.breadcrumb').html(html);
 }
 
 function ajaxOpentag() {
-    let url = "/admin/tag?open=" + dataOpen.toLowerCase();
-    $.ajax({
-        url: url,
-        type: "GET",
-        success: function (data) {
-          if(dataOpen == 'Product'){
+   let url = '/admin/tag?open=' + dataOpen.toLowerCase();
+   $.ajax({
+      url: url,
+      type: 'POST',
+      success: function (data) {
+         if (dataOpen == 'Product') {
             GenarateTableProductHTML(data);
-          }else if(dataOpen == 'User'){
+         } else if (dataOpen == 'User') {
             GenarateTableUserHTML(data);
-          }
-            // window.history.replaceState(null, null, url);
-        }
-    });
+         }
+         window.history.replaceState(null, null, url);
+      },
+   });
 }
 
 function GenarateTableProductHTML(data) {
-    let html = "";
-    $('#tableBodyProduct').html(html);
+   let html = '';
+   $('#tableBodyProduct').html(html);
 
-    data.forEach((item) => {
-        html +=
-            `
+   data.forEach((item) => {
+      html += `
         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
             <th scope="row"class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${item.id}
             </th>
@@ -95,23 +93,21 @@ function GenarateTableProductHTML(data) {
                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fa-regular fa-pen-to-square"></i></a>
             </td>
             <td class="px-6 py-4">
-                <a th:href= "@{/admin/user/delete?id=}+ ${item.id}" 
+                <a href= "/admin/deleted?id=${item.id}" 
                     class="font-medium text-blue-600 dark:text-blue-500 hover:underline"><i class="fas fa-trash cursor-pointer"></i></a>
             </td>
         </tr>
         `;
-
-    });
-    $('#tableBodyProduct').html(html);
+   });
+   $('#tableBodyProduct').html(html);
 }
 
 function GenarateTableUserHTML(data) {
-    let html = "";
-    $('#tableBodyUser').html(html);
+   let html = '';
+   $('#tableBodyUser').html(html);
 
-    data.forEach((item) => {
-        html +=
-            `
+   data.forEach((item) => {
+      html += `
         <tr class="bg-white border-b dark:bg-gray-900 dark:border-gray-700">
             <th scope="row"class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">${item.id}
             </th>
@@ -133,8 +129,6 @@ function GenarateTableUserHTML(data) {
             </td>
         </tr>
         `;
-
-    });
-    $('#tableBodyUser').html(html);
+   });
+   $('#tableBodyUser').html(html);
 }
-

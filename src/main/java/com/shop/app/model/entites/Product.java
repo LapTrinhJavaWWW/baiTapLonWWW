@@ -1,4 +1,4 @@
-package com.shop.app.model;
+package com.shop.app.model.entites;
 
 import java.util.List;
 import java.util.Set;
@@ -23,7 +23,7 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "product")
 public class Product {
-    @Id
+	@Id
 	@GeneratedValue
 	@Column(name = "id", length = 50)
 	private Integer id;
@@ -32,7 +32,7 @@ public class Product {
 	private String name;
 
 	@ElementCollection
-	@CollectionTable(name = "img", joinColumns = { @JoinColumn( name="id") })
+	@CollectionTable(name = "img", joinColumns = { @JoinColumn(name = "id") })
 	@Column(name = "img", nullable = false)
 	private Set<String> img;
 
@@ -50,19 +50,29 @@ public class Product {
 
 	@Column(name = "price", columnDefinition = "decimal(10,2)")
 	private double price;
-	
-	@Column(name = "slug",length = 50)
+
+	@Column(name = "slug", length = 50)
 	private String slug;
-	
+
 	@Column(name = "type", length = 50)
 	private String type;
-	
-	@Column(name = "bestSeller",length = 50)
+
+	@Column(name = "bestSeller", length = 50)
 	private String bestSeller;
 
 	@Column(name = "specialfeature")
 	private List<String> specialfeature;
 
-	@Column(name = "camera")
-	private List<String> camera;
+	@ElementCollection
+	@CollectionTable(name = "cameras", joinColumns = { @JoinColumn(name = "id") })
+	@Column(name = "cameras", nullable = false)
+	private Set<String> cameras;
+
+	@Override
+	public String toString() {
+		return id + "," + name + "," + img + "," + chip + "," + screen
+				+ "," + rom + "," + ram + "," + price + "," + slug + "," + type
+				+ "," + bestSeller + "," + specialfeature + ", " + cameras;
+	}
+
 }

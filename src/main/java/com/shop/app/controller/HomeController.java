@@ -9,7 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.shop.app.model.Account;
+import com.shop.app.model.entites.Account;
 import com.shop.app.service.ProductService;
 
 @Controller
@@ -17,21 +17,17 @@ import com.shop.app.service.ProductService;
 public class HomeController {
     @Autowired
     ProductService productServiceservice;
-    
-    @RequestMapping(value = {"","/"}, method = RequestMethod.GET)
+
+    @RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
     public String home(Principal principal, Model model) {
-        try {
-            model.addAttribute("sanphams", productServiceservice.findAll());
-            String userName = null;
-            if (principal != null) {
-                Account account = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-                model.addAttribute("account", account);
-                return "home";
-            }
-            model.addAttribute("username", userName);
-            return "home";
-        } catch (Exception e) {
-            return "redirect:/403";
+        model.addAttribute("sanphams", productServiceservice.findAll());
+        String userName = null;
+        if (principal != null) {
+            Account account = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+            model.addAttribute("account", account);
+            return "public/home";
         }
+        model.addAttribute("username", userName);
+        return "public/home";
     }
 }

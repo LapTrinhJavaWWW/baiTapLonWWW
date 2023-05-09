@@ -1,4 +1,4 @@
-package com.shop.app.model;
+package com.shop.app.model.entites;
 
 public enum Role {
     ADMIN, USER;

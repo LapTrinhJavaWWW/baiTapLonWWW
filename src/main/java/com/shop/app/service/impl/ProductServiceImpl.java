@@ -1,63 +1,42 @@
 package com.shop.app.service.impl;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.shop.app.model.Product;
-import com.shop.app.service.ProductRepository;
+import com.shop.app.model.entites.Product;
+import com.shop.app.repository.ProductRepository;
 import com.shop.app.service.ProductService;
 
 @Service
-public class ProductServiceImpl implements ProductService{
+public class ProductServiceImpl implements ProductService {
     @Autowired
     ProductRepository repository;
 
+    @Override
     public Product save(Product entity) {
         return repository.save(entity);
     }
 
-    public <S extends Product> Iterable<S> saveAll(Iterable<S> entities) {
-        return repository.saveAll(entities);
-    }
-
-    public Optional<Product> findById(Integer id) {
-        return repository.findById(id);
-    }
-
-    public boolean existsById(Integer id) {
-        return repository.existsById(id);
-    }
-
+    @Override
     public List<Product> findAll() {
-        return (List<Product>) repository.findAll();
+        return repository.findAll();
     }
 
-    public Iterable<Product> findAllById(Iterable<Integer> ids) {
-        return repository.findAllById(ids);
-    }
-
+    @Override
     public void deleteById(Integer id) {
         repository.deleteById(id);
     }
 
-    public void delete(Product entity) {
-        repository.delete(entity);
+    @Override
+    public List<Product> findByName(String name) {
+        return repository.findByName(name);
     }
 
-    public void deleteAllById(Iterable<? extends Integer> ids) {
-        repository.deleteAllById(ids);
+    @Override
+    public Product findById(Integer id) {
+        return repository.findById(id).get();
     }
 
-    public void deleteAll(Iterable<? extends Product> entities) {
-        repository.deleteAll(entities);
-    }
-
-    public void deleteAll() {
-        repository.deleteAll();
-    }
-
-    
 }

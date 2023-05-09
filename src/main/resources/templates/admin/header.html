@@ -1,61 +1,51 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Header</title>
+   </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Header</title>
-  <!-- css w3 -->
-  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-  <!-- font awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-
-<body>
-  <!-- Sidebar -->
-  <div class="w3-sidebar w3-bar-block" style="display:none;z-index:5" id="mySidebar">
-    <button class="w3-bar-item w3-button w3-xxlarge btnCloseLeft">Close &times;</button>
-    <a href="#" class="w3-bar-item w3-button">Link 1</a>
-    <a href="#" class="w3-bar-item w3-button">Link 2</a>
-    <a href="#" class="w3-bar-item w3-button">Link 3</a>
-    <div class="w3-dropdown-hover">
-      <button class="w3-button">Product &ensp;<i class="fa fa-caret-down"></i></button>
-      <div class="w3-dropdown-content w3-bar-block">
-        <a href="#" class="w3-bar-item w3-button">Add Product</a>
-        <a href="#" class="w3-bar-item w3-button">List Product</a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Page Content -->
-  <div class="w3-overlay" style="cursor:pointer" id="myOverlay"></div>
-
-  <div>
-    <button class="w3-button w3-white w3-xxlarge btnOpenLeft">&#9776;</button>
-  </div>
-</body>
-<!-- jquery -->
-<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
-  crossorigin="anonymous"></script>
-<script>
-  $(document).ready(function () {
-
-    $(".btnOpenLeft").click(function () {
-      $("#mySidebar").show();
-      $("#myOverlay").show();
-    });
-    $(".btnCloseLeft").click(function () {
-      $("#mySidebar").fadeOut();
-      $("#myOverlay").fadeOut();
-    });
-
-    $("#myOverlay").click(function () {
-      $("#mySidebar").fadeOut();
-      $("#myOverlay").fadeOut();
-    });
-  })
-
-</script>
-
+   <body>
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+         <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+               <img src="/img/iconFPT.png" alt="" style="max-width: 60%" />
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                  <li class="nav-item">
+                     <a class="nav-link" th:href="@{/home}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/admin/product">Sản phẩm</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="/admin/user">Nguời dùng</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                  </li>
+               </ul>
+               <div class="d-flex">
+                  <div class="col text-center">
+                     <div class="row">
+                        <div class="dropdown">
+                           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">admin@gmail.com</button>
+                           <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                              <li><a class="dropdown-item" href="/logout">Đăng xuất</a></li>
+                              <li><a class="dropdown-item" href="#">Thông tin tài khoản</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </nav>
+   </body>
 </html>

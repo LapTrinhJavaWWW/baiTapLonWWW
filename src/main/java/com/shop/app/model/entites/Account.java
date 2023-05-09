@@ -1,4 +1,4 @@
-package com.shop.app.model;
+package com.shop.app.model.entites;
 
 import java.util.Collection;
 import java.util.List;
@@ -17,6 +17,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
 @Data
 @Builder
 @NoArgsConstructor
@@ -74,5 +75,5 @@ public class Account implements UserDetails {
 	public boolean isEnabled() {
 		return true;
 	}
-	
+
 }
