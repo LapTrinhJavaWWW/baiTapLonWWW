@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Admin</title>
+</head>
+
+<body>
+    <div class="main p-4 sm:ml-64" data-open="product" style="display: none;">
+        <!-- nav -->
+        <nav class="flex breadcrumb pb-5" aria-label="Breadcrumb">
+            <ol class="inline-flex items-center space-x-1 md:space-x-3">
+                <li class="inline-flex items-center">
+                    <a href="#"
+                        class="inline-flex items-center text-sm font-medium text-gray-700 hover:text-blue-600 dark:text-gray-400 dark:hover:text-white">
+                        <svg aria-hidden="true" class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z">
+                            </path>
+                        </svg>
+                        Home
+                    </a>
+                </li>
+            </ol>
+        </nav>
+        <!-- tabs -->
+        <div
+            class="mb-4 text-sm text-center text-gray-500 border-b border-gray-200 dark:text-gray-400 dark:border-gray-700">
+            <ul class="flex flex-wrap -mb-px">
+                <li class="mr-2">
+                    <a href="#"
+                        id="btnDsProduct"
+                        data-tab="dsproduct"
+                        class="font-semibold tabproduct text-slate-700 inline-block p-4  border-b-2 border-blue-600 rounded-t-lg  active dark:text-blue-500">Danh
+                        sách sản phẩm</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                        id="btnAddProduct"
+                        data-tab="addproduct"
+                        class="font-semibold tabproduct text-slate-700 inline-block p-4 border-b-2 border-transparent rounded-t-lg">Thêm
+                        sản phẩm</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                        class="inline-block p-4 border-b-2 border-transparent rounded-t-lg hover:text-gray-600 hover:border-gray-300 dark:hover:text-gray-300">Contacts</a>
+                </li>
+            </ul>
+        </div>
+        <!-- tab danh sách sản phẩm -->
+        <div class="container mx-auto place-content-center" id="tabdsproduct">
+            <div class="drop-shadow-lg bg-zinc-500">
+                <div class="flex justify-start pl-10 pt-2">
+                    <button id="dropdownBottomButton" data-dropdown-toggle="dropdownBottom"
+                        data-dropdown-placement="bottom" class="bg-neutral-400 p-1 rounded-full" type="button">
+                        <span class="font-sans font-medium">Chọn loại sản phẩm</span>
+                        <i class="fas fa-caret-down"></i>
+                    </button>
+                    <!-- Dropdown menu -->
+                    <div id="dropdownBottom"
+                        class="z-10 hidden bg-white divide-y rounded-lg shadow w-44">
+                        <ul class="py-2 text-sm text-gray-700 dark:text-gray-200"
+                            aria-labelledby="dropdownBottomButton">
+                            <li>
+                                <a href="#"
+                                    class="font-semibold text-black block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Điên
+                                    thoại</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="font-semibold text-black block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Tablet</a>
+                            </li>
+                            <li>
+                                <a href="#"
+                                    class="font-semibold text-black block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Phụ
+                                    kiện</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="columns-1 mt-10 pl-10 pb-5 pr-10">
+                    <div class="flex justify-between overflow-x-auto">
+                        <div class="pb-5">
+                            <i id="btnSearch"
+                                class="fas fa-search rounded-full cursor-progress mb-2 text-xl pt-1 pb-1 pl-2 pr-2 bg-zinc-800 text-slate-50 rounded-full">
+                            </i>
+                            <!-- Dropdown menu -->
+                            <input type="text" style="width: 30rem;" class="border-none max-h-8 rounded-full hidden"
+                                id="ipSearch" placeholder="Nhập tên sản phẩm cần tìm...">
+                        </div>
+                        <div>
+                            <i class="fas fa-sort cursor-pointer rounded-full bg-zinc-800 text-xl text-slate-50 pt-1 pb-1 pl-3 pr-3"></i>
+                        </div>
+                    </div>
+                    <div class="flex-auto  overflow-x-auto shadow-md sm:rounded-lg w-full">
+                        <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400 lining-nums">
+                            <thead
+                                class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                                <tr>
+                                    <th scope="col" class="px-6 py-3">
+                                        id
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Name
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Image
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        CPU
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Screen
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Rom
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Ram
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Price
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Slug
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Type
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Seller
+                                    </th>
+                                    <th>
+                                    </th>
+                                    <th>
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tableBodyProduct">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- tab thêm sản phẩm -->
+        <div class="container mx-auto place-content-center hidden" id="tabaddproduct">
+            <div class="drop-shadow-lg bg-zinc-500">
+                <div class="grid gap-x-8 gap-y-4 grid-cols-3 p-2">
+                    <div>
+                        <label for="type" class="font-semibold opacity-75">Chọn loại sản phẩm:</label>
+                        <select name="type" id="type" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right cursor-pointer">
+                            <option value="dienthoai">Điện thoại</option>
+                            <option value="tablet">Tablet</option>
+                            <option value="phukien">Phụ kiện</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="name" class="font-semibold opacity-75">Tên sản phẩm:</label>
+                        <input type="text" name="name" id="name" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right">
+                    </div>
+                    <div>
+                        <label for="slug" class="font-semibold opacity-75">Chọn hãng sản xuất:</label>
+                        <select name="slug" id="slug" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right cursor-pointer">
+                            <option value="apple">Apple</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="oppo">Oppo</option>
+                            <option value="xiaomi">Xiaomi</option>
+                            <option value="samsung">Samsung</option>
+                            <option value="vivo">Vivo</option>
+                            <option value="asus">Asus</option>
+                            <option value="nokia">Nokia</option>
+                            <option value="masstel">Masstel</option>
+                            <option value="realme">Realme</option>
+                            <option value="tecno">Tecno</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="price" class="font-semibold opacity-75">Mức giá(VND):</label>
+                        <input type="text" name="price" id="price" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right">
+                    </div>
+                    <div>
+                        <label for="img" class="font-semibold opacity-75">Hình ảnh(png,jpg):</label>
+                        <input type="text" name="img" id="img" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right">
+                    </div>
+                    <div>
+                        <label for="screen" class="font-semibold opacity-75">Màn hình(inch):</label>
+                        <select name="screen" id="screen" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right cursor-pointer">
+                            <option value="6.4">6.4</option>
+                            <option value="6.5">6.5</option>
+                            <option value="6.6">6.6</option>
+                            <option value="6.7">6.7</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="chip" class="font-semibold opacity-75">CPU:</label>
+                        <input type="text" name="chip" id="chip" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right">
+                    </div>
+                    <div>
+                        <label for="ram" class="font-semibold opacity-75">Ram:</label>
+                        <select name="ram" id="ram" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right cursor-pointer">
+                            <option value="2">2 GB</option>
+                            <option value="4">4 GB</option>
+                            <option value="6">6 GB</option>
+                            <option value="8">8 GB</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="rom" class="font-semibold opacity-75">Rom:</label>
+                        <select name="rom" id="rom" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1 float-right cursor-pointer">
+                            <option value="64">64 GB</option>
+                            <option value="128">128 GB</option>
+                            <option value="256">256 GB</option>
+                            <option value="512">5122 GB</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="bestSeller" class="font-semibold opacity-75">Bán chạy(Y/N):</label>
+                        <input type="checkbox" name="bestSeller" id="bestSeller" class="font-semibold rounded-full border-none max-h-8 pt-1 pb-1">
+                    </div>
+                    <button id="btnSave" class="bg-gray-800 text-white p-2 rounded-full text-xl font-semibold cursor-progress hover:bg-black hover:text-yellow-300">Save</button>
+                  </div>
+            </div>
+            <div id="messageSave" class="mt-4 p-4 mb-4 text-sm text-green-800 bg-green-50 dark:bg-gray-800 dark:text-green-400 hidden" role="alert">
+                <span class="font-medium">Thêm sản phẩm thành công!</span>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
