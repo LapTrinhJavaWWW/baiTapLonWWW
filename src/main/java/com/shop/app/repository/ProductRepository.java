@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.shop.app.model.entites.Product;
 
@@ -19,6 +20,12 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     Optional<Product> findById(Integer id);
 
-    List<Product> findByCategoryId(Integer id);
+    List<Product> findBySlug(String slug);
+
+    // lay 6 san pham
+    List<Product> findTop6ByOrderByIdDesc();
+
+    // lay 5 san pham tiep theo
+    List<Product> findTop5ByIdLessThanOrderByIdDesc(Integer id);
 
 }

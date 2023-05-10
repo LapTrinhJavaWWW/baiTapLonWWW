@@ -1,312 +1,312 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-   <head>
-      <meta charset="UTF-8" />
-      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <title>Sản phẩm</title>
-      <!-- bootstrap css -->
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-      <!-- icon awesome -->
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
-      <!-- sweetalert -->
-      <link rel="stylesheet" href="sweetalert2.min.css" />
-   </head>
-   <body>
-      <style>
-         input {
-            border: none;
-            border-bottom: 1px solid #000000 !important;
-         }
-         input:focus {
-            outline: none;
-         }
-         select {
-            cursor: pointer;
-         }
-         .text-color {
-            color: aliceblue;
-         }
-      </style>
-      <div th:include="admin/header.html"></div>
-      <div class="container shadow p-3 mb-5 bg-body rounded mt-4">
-         <div class="row">
-            <div class="col-md-12 p-0">
-               <!-- <h1 class="text-center">Sản phẩm</h1> -->
-               <ul class="nav nav-tabs">
-                  <li class="nav-item">
-                     <a class="nav-link nav-link-tab" href="#" data-tab="tablist">Danh sách sản phẩm</a>
-                  </li>
-                  <li class="nav-item">
-                     <a class="nav-link nav-link-tab" href="#" data-tab="tabadd">Thêm sản phẩm</a>
-                  </li>
-               </ul>
-            </div>
-         </div>
-         <div class="row">
-            <!-- tab danh sách sản phẩm -->
-            <div id="tab-danhsachsanpham">
-               <div class="row p-2">
-                  <form class="d-flex">
-                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="search" />
-                     <button class="btn btn-outline-success" type="submit">Search</button>
-                  </form>
-               </div>
-               <div class="row p-4">
-                  <table class="table table-striped">
-                     <thead class="bg-dark">
-                        <tr>
-                           <th class="text-color" scope="col">STT</th>
-                           <th class="text-color text-center" scope="col">Mã sản phẩm</th>
-                           <th class="text-color" scope="col">Nhà sản xuất</th>
-                           <th class="text-color" scope="col">Loại sản phẩm</th>
-                           <th class="text-color" scope="col">Tên sản phẩm</th>
-                           <th class="text-color" scope="col">Đơn giá</th>
-                           <th class="text-color text-center" scope="col">Hình ảnh</th>
-                           <th class="text-color text-center" scope="col">Màn hình</th>
-                           <th class="text-color text-center" scope="col">CPU</th>
-                           <th class="text-color text-center" scope="col">Ram</th>
-                           <th class="text-color text-center" scope="col">Rom</th>
-                           <th class="text-color text-center" scope="col">Số lượng bán ra</th>
-                           <th class="text-color" scope="col">Top bán chạy</th>
-                           <th scope="col" colspan="2"></th>
-                        </tr>
-                     </thead>
-                     <tbody>
-                        <tr th:each="item,index :${products}">
-                           <td th:text="${index.index}"></td>
-                           <td class="text-center" th:text="${item.id}"></td>
-                           <td th:text="${item.slug}"></td>
-                           <td th:text="${item.type}"></td>
-                           <td th:text="${item.name}"></td>
-                           <td class="priceTbl" th:text="${item.price}"></td>
-                           <td class="text-center">
-                              <img th:src="${item.img[0]}" alt="" style="max-width: 50%" />
-                           </td>
-                           <td class="text-center" th:text="${item.screen}"></td>
-                           <td th:text="${item.chip}"></td>
-                           <td class="text-center" th:text="${item.ram}"></td>
-                           <td class="text-center" th:text="${item.rom}"></td>
-                           <td class="text-center">10</td>
-                           <td th:text="${item.bestSeller}"></td>
-                           <td style="cursor: pointer"><i class="fas fa-pen openModelUpdate" th:value="${item}" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate"></i></td>
-                           <td style="cursor: pointer">
-                              <i class="fas fa-trash openModelDel" th:value="${item.id}" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
-                           </td>
-                        </tr>
-                     </tbody>
-                  </table>
-               </div>
-            </div>
-            <!-- modal delete -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-circle" style="color: #f20707; margin-right: 1rem"></i>Cảnh báo</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                     </div>
-                     <div class="modal-body">
-                        <h6>Bạn thật sự muốn xóa sản phẩm này!</h6>
-                     </div>
-                     <div class="modal-footer">
-                        <button id="btnDel" type="button" class="btn btn-secondary"><i class="fas fa-trash"></i></button>
-                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cencel</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- modal update -->
-            <div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-               <div class="modal-dialog">
-                  <div class="modal-content">
-                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-wrench" style="margin-right: 1rem"></i>Cập nhật sản phẩm</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                     </div>
-                     <div class="modal-body modal-body-update">
-                        <div class="mb-3">
-                           <label for="slugupdate" class="form-label">Nhà sản xuất</label>
-                           <select class="form-control" id="slugupdate">
-                              <option value="samsung">Samsung</option>
-                              <option value="apple">Apple</option>
-                              <option value="vivo">Vivo</option>
-                              <option value="realme">Realme</option>
-                              <option value="oppo">Oppo</option>
-                              <option value="xiaomi">Xiaomi</option>
-                              <option value="nokia">Nokia</option>
-                              <option value="asus">Asus</option>
-                           </select>
-                        </div>
-                        <div class="mb-3">
-                           <label for="typeupdate" class="form-label">Loại sản phẩm</label>
-                           <select class="form-control" id="typeupdate">
-                              <option value="dienthoai">Điện thoại</option>
-                              <option value="tablet">Tablet</option>
-                              <option value="phukien">Phụ kiện</option>
-                           </select>
-                        </div>
-                        <div class="mb-3">
-                           <label for="nameupdate" class="form-label">Tên sản phẩm</label>
-                           <input type="text" class="form-control" id="nameupdate" aria-describedby="emailHelp" />
-                        </div>
-                        <div class="mb-3">
-                           <label for="priceupdate" class="form-label">Đơn giá</label>
-                           <input type="text" class="form-control" id="priceupdate" aria-describedby="emailHelp" />
-                        </div>
-                        <div class="mb-3">
-                           <label for="imageupdate" class="form-label">Hình ảnh</label>
-                           <img src="" alt="" id="imageupdate" />
-                           <i class="fas fa-times-circle" id="btnClearImgUpdate" style="color: #cd1818; cursor: pointer"></i>
-                           <input type="text" id="inputimageupdate" class="form-control" aria-describedby="emailHelp" />
-                        </div>
-                        <div class="mb-3">
-                           <label for="chipupdate" class="form-label">Chip</label>
-                           <input type="text" class="form-control" id="chipupdate" aria-describedby="emailHelp" />
-                        </div>
-                        <div class="mb-3">
-                           <label for="screenupdate" class="form-label">Màn hình</label>
-                           <input type="text" class="form-control" id="screenupdate" aria-describedby="emailHelp" />
-                        </div>
-                        <div class="mb-3">
-                           <label for="ramupdate" class="form-label">Ram</label>
-                           <select class="form-control" id="ramupdate">
-                              <option value="2">2 GB</option>
-                              <option value="4">4 GB</option>
-                              <option value="6">6 GB</option>
-                              <option value="8">8 GB</option>
-                           </select>
-                        </div>
-                        <div class="mb-3">
-                           <label for="romupdate" class="form-label">Rom</label>
-                           <select class="form-control" id="romupdate">
-                              <option value="64">64 GB</option>
-                              <option value="128">128 GB</option>
-                              <option value="256">256 GB</option>
-                              <option value="512">512 GB</option>
-                           </select>
-                        </div>
-                        <div class="mb-3" style="display: flex; align-items: center">
-                           <label for="bestSellerupdate" class="form-label" style="margin-right: 10px">Top bán chạy</label>
-                           <input type="checkbox" id="bestSellerupdate" aria-describedby="emailHelp" />
-                        </div>
-                     </div>
-                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button id="btnUpdate" type="button" class="btn btn-primary">Save changes</button>
-                     </div>
-                  </div>
-               </div>
-            </div>
-            <!-- tab thêm sản phẩm -->
-            <div id="tab-themsanpham">
-               <table class="table table-striped mt-4">
-                  <tbody>
-                     <thead class="bg-dark">
-                        <tr>
-                           <th class="text-center text-color" scope="col">Nhà sản xuất</th>
-                           <th class="text-center text-color" scope="col">Loại sản phẩm</th>
-                           <th class="text-center text-color" scope="col">Tên sản phẩm</th>
-                           <th class="text-center text-color" scope="col">Đơn giá</th>
-                           <th class="text-center text-color" scope="col">Hình ảnh</th>
-                        </tr>
-                     </thead>
-                     <tr>
-                        <td class="text-center">
-                           <select class="rounded p-1 text-center" id="slug">
-                              <option value="samsung">Samsung</option>
-                              <option value="apple">Apple</option>
-                              <option value="vivo">Vivo</option>
-                              <option value="realme">Realme</option>
-                              <option value="oppo">Oppo</option>
-                              <option value="xiaomi">Xiaomi</option>
-                              <option value="nokia">Nokia</option>
-                              <option value="asus">Asus</option>
-                           </select>
-                        </td>
-                        <td class="text-center">
-                           <select class="rounded p-1 text-center" id="type">
-                              <option value="dienthoai">Điện thoại</option>
-                              <option value="tablet">Tablet</option>
-                              <option value="phukien">Phụ kiện</option>
-                           </select>
-                        </td>
-                        <td class="text-center">
-                           <input class="p-1" type="text" name="name" id="name" />
-                        </td>
-                        <td class="text-center">
-                           <input class="p-1" type="text" name="price" id="price" />
-                        </td>
-                        <td class="text-center">
-                           <input class="p-1" type="text" id="image" />
-                        </td>
-                     </tr>
-                     <thead class="bg-dark">
-                        <tr>
-                           <th class="text-center text-color" scope="col">Màn hình</th>
-                           <th class="text-center text-color" scope="col">CPU</th>
-                           <th class="text-center text-color" scope="col">Ram</th>
-                           <th class="text-center text-color" scope="col">Rom</th>
-                           <th class="text-center text-color" scope="col">Top bán chạy</th>
-                        </tr>
-                     </thead>
-                     <tr>
-                        <td class="text-center">
-                           <input class="p-1" type="text" name="screen" id="screen" />
-                        </td>
-                        <td class="text-center">
-                           <input class="p-1" type="text" name="chip" id="chip" />
-                        </td>
-                        <td class="text-center">
-                           <select class="rounded p-1 text-center" id="ram">
-                              <option value="2">2 GB</option>
-                              <option value="4">4 GB</option>
-                              <option value="6">6 GB</option>
-                              <option value="8">8 GB</option>
-                           </select>
-                        </td>
-                        <td class="text-center">
-                           <select class="rounded p-1 text-center" id="rom">
-                              <option value="64">64 GB</option>
-                              <option value="128">128 GB</option>
-                              <option value="256">256 GB</option>
-                              <option value="512">512 GB</option>
-                           </select>
-                        </td>
-                        <td class="text-center">
-                           <input type="checkbox" name="" id="bestSeller" />
-                        </td>
-                     </tr>
-                  </tbody>
-               </table>
-               <div class="text-center">
-                  <button id="btnSave" class="btn btn-success"><i class="fas fa-plus"></i> Thêm sản phẩm</button>
-               </div>
-               <div class="toast hide">
-                  <div class="toast-header">
-                     <strong class="me-auto"><i class="fas fa-check" style="margin-right: 1rem"></i>Thêm sản phẩm thành công</strong>
-                     <button type="button" class="btn-close" data-bs-dismiss="toast"></button>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </body>
-   <!-- jquery -->
-   <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-   <!-- js bootstrap -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-   <!-- js file -->
-   <script src="/js/admin/product.js"></script>
-   <!--js sweetalert -->
-   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-   <script>
-      let priceTbl = document.querySelectorAll('.priceTbl');
-      priceTbl.forEach((price) => {
-         let value = Number(price.textContent)
-            .toString()
-            .replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
-         price.textContent = value;
-      });
-   </script>
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Sản phẩm</title>
+		<!-- bootstrap css -->
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+		<!-- icon awesome -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+		<!-- sweetalert -->
+		<link rel="stylesheet" href="sweetalert2.min.css" />
+	</head>
+	<body>
+		<style>
+			input {
+				border: none;
+				border-bottom: 1px solid #000000 !important;
+			}
+			input:focus {
+				outline: none;
+			}
+			select {
+				cursor: pointer;
+			}
+			.text-color {
+				color: aliceblue;
+			}
+		</style>
+		<div th:include="admin/header.html"></div>
+		<div class="container shadow p-3 mb-5 bg-body rounded mt-4">
+			<div class="row">
+				<div class="col-md-12 p-0">
+					<!-- <h1 class="text-center">Sản phẩm</h1> -->
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link nav-link-tab" href="#" data-tab="tablist">Danh sách sản phẩm</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link nav-link-tab" href="#" data-tab="tabadd">Thêm sản phẩm</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<div class="row">
+				<!-- tab danh sách sản phẩm -->
+				<div id="tab-danhsachsanpham">
+					<div class="row p-2">
+						<form class="d-flex" action="/admin/product/search" method="GET">
+							<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name="name" />
+							<button class="btn btn-outline-success" type="submit">Search</button>
+						</form>
+					</div>
+					<div class="row p-4">
+						<table class="table table-striped">
+							<thead class="bg-dark">
+								<tr>
+									<th class="text-color" scope="col">STT</th>
+									<th class="text-color text-center" scope="col">Mã sản phẩm</th>
+									<th class="text-color" scope="col">Nhà sản xuất</th>
+									<th class="text-color" scope="col">Loại sản phẩm</th>
+									<th class="text-color" scope="col">Tên sản phẩm</th>
+									<th class="text-color" scope="col">Đơn giá</th>
+									<th class="text-color text-center" scope="col">Hình ảnh</th>
+									<th class="text-color text-center" scope="col">Màn hình</th>
+									<th class="text-color text-center" scope="col">CPU</th>
+									<th class="text-color text-center" scope="col">Ram</th>
+									<th class="text-color text-center" scope="col">Rom</th>
+									<th class="text-color text-center" scope="col">Số lượng bán ra</th>
+									<th class="text-color" scope="col">Top bán chạy</th>
+									<th scope="col" colspan="2"></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr th:each="item,index :${products}">
+									<td th:text="${index.index}"></td>
+									<td class="text-center" th:text="${item.id}"></td>
+									<td th:text="${item.slug}"></td>
+									<td th:text="${item.type}"></td>
+									<td th:text="${item.name}"></td>
+									<td class="priceTbl" th:text="${item.price}"></td>
+									<td class="text-center">
+										<img th:src="${item.img[0]}" alt="" style="max-width: 50%" />
+									</td>
+									<td class="text-center" th:text="${item.screen}"></td>
+									<td th:text="${item.chip}"></td>
+									<td class="text-center" th:text="${item.ram}"></td>
+									<td class="text-center" th:text="${item.rom}"></td>
+									<td class="text-center">10</td>
+									<td th:text="${item.bestSeller}"></td>
+									<td style="cursor: pointer"><i class="fas fa-pen openModelUpdate" th:value="${item}" data-bs-toggle="modal" data-bs-target="#exampleModalUpdate"></i></td>
+									<td style="cursor: pointer">
+										<i class="fas fa-trash openModelDel" th:value="${item.id}" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<!-- modal delete -->
+				<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-exclamation-circle" style="color: #f20707; margin-right: 1rem"></i>Cảnh báo</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body">
+								<h6>Bạn thật sự muốn xóa sản phẩm này!</h6>
+							</div>
+							<div class="modal-footer">
+								<button id="btnDel" type="button" class="btn btn-secondary"><i class="fas fa-trash"></i></button>
+								<button type="button" class="btn btn-primary" data-bs-dismiss="modal">Cencel</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- modal update -->
+				<div class="modal fade" id="exampleModalUpdate" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<h5 class="modal-title" id="exampleModalLabel"><i class="fas fa-wrench" style="margin-right: 1rem"></i>Cập nhật sản phẩm</h5>
+								<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
+							<div class="modal-body modal-body-update">
+								<div class="mb-3">
+									<label for="slugupdate" class="form-label">Nhà sản xuất</label>
+									<select class="form-control" id="slugupdate">
+										<option value="samsung">Samsung</option>
+										<option value="apple">Apple</option>
+										<option value="vivo">Vivo</option>
+										<option value="realme">Realme</option>
+										<option value="oppo">Oppo</option>
+										<option value="xiaomi">Xiaomi</option>
+										<option value="nokia">Nokia</option>
+										<option value="asus">Asus</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label for="typeupdate" class="form-label">Loại sản phẩm</label>
+									<select class="form-control" id="typeupdate">
+										<option value="dienthoai">Điện thoại</option>
+										<option value="tablet">Tablet</option>
+										<option value="phukien">Phụ kiện</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label for="nameupdate" class="form-label">Tên sản phẩm</label>
+									<input type="text" class="form-control" id="nameupdate" aria-describedby="emailHelp" />
+								</div>
+								<div class="mb-3">
+									<label for="priceupdate" class="form-label">Đơn giá</label>
+									<input type="text" class="form-control" id="priceupdate" aria-describedby="emailHelp" />
+								</div>
+								<div class="mb-3">
+									<label for="imageupdate" class="form-label">Hình ảnh</label>
+									<img src="" alt="" id="imageupdate" />
+									<i class="fas fa-times-circle" id="btnClearImgUpdate" style="color: #cd1818; cursor: pointer"></i>
+									<input type="text" id="inputimageupdate" class="form-control" aria-describedby="emailHelp" />
+								</div>
+								<div class="mb-3">
+									<label for="chipupdate" class="form-label">Chip</label>
+									<input type="text" class="form-control" id="chipupdate" aria-describedby="emailHelp" />
+								</div>
+								<div class="mb-3">
+									<label for="screenupdate" class="form-label">Màn hình</label>
+									<input type="text" class="form-control" id="screenupdate" aria-describedby="emailHelp" />
+								</div>
+								<div class="mb-3">
+									<label for="ramupdate" class="form-label">Ram</label>
+									<select class="form-control" id="ramupdate">
+										<option value="2">2 GB</option>
+										<option value="4">4 GB</option>
+										<option value="6">6 GB</option>
+										<option value="8">8 GB</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label for="romupdate" class="form-label">Rom</label>
+									<select class="form-control" id="romupdate">
+										<option value="64">64 GB</option>
+										<option value="128">128 GB</option>
+										<option value="256">256 GB</option>
+										<option value="512">512 GB</option>
+									</select>
+								</div>
+								<div class="mb-3" style="display: flex; align-items: center">
+									<label for="bestSellerupdate" class="form-label" style="margin-right: 10px">Top bán chạy</label>
+									<input type="checkbox" id="bestSellerupdate" aria-describedby="emailHelp" />
+								</div>
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+								<button id="btnUpdate" type="button" class="btn btn-primary">Save changes</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- tab thêm sản phẩm -->
+				<div id="tab-themsanpham">
+					<table class="table table-striped mt-4">
+						<tbody>
+							<thead class="bg-dark">
+								<tr>
+									<th class="text-center text-color" scope="col">Nhà sản xuất</th>
+									<th class="text-center text-color" scope="col">Loại sản phẩm</th>
+									<th class="text-center text-color" scope="col">Tên sản phẩm</th>
+									<th class="text-center text-color" scope="col">Đơn giá</th>
+									<th class="text-center text-color" scope="col">Hình ảnh</th>
+								</tr>
+							</thead>
+							<tr>
+								<td class="text-center">
+									<select class="rounded p-1 text-center" id="slug">
+										<option value="samsung">Samsung</option>
+										<option value="apple">Apple</option>
+										<option value="vivo">Vivo</option>
+										<option value="realme">Realme</option>
+										<option value="oppo">Oppo</option>
+										<option value="xiaomi">Xiaomi</option>
+										<option value="nokia">Nokia</option>
+										<option value="asus">Asus</option>
+									</select>
+								</td>
+								<td class="text-center">
+									<select class="rounded p-1 text-center" id="type">
+										<option value="dienthoai">Điện thoại</option>
+										<option value="tablet">Tablet</option>
+										<option value="phukien">Phụ kiện</option>
+									</select>
+								</td>
+								<td class="text-center">
+									<input class="p-1" type="text" name="name" id="name" />
+								</td>
+								<td class="text-center">
+									<input class="p-1" type="text" name="price" id="price" />
+								</td>
+								<td class="text-center">
+									<input class="p-1" type="text" id="image" />
+								</td>
+							</tr>
+							<thead class="bg-dark">
+								<tr>
+									<th class="text-center text-color" scope="col">Màn hình</th>
+									<th class="text-center text-color" scope="col">CPU</th>
+									<th class="text-center text-color" scope="col">Ram</th>
+									<th class="text-center text-color" scope="col">Rom</th>
+									<th class="text-center text-color" scope="col">Top bán chạy</th>
+								</tr>
+							</thead>
+							<tr>
+								<td class="text-center">
+									<input class="p-1" type="text" name="screen" id="screen" />
+								</td>
+								<td class="text-center">
+									<input class="p-1" type="text" name="chip" id="chip" />
+								</td>
+								<td class="text-center">
+									<select class="rounded p-1 text-center" id="ram">
+										<option value="2">2 GB</option>
+										<option value="4">4 GB</option>
+										<option value="6">6 GB</option>
+										<option value="8">8 GB</option>
+									</select>
+								</td>
+								<td class="text-center">
+									<select class="rounded p-1 text-center" id="rom">
+										<option value="64">64 GB</option>
+										<option value="128">128 GB</option>
+										<option value="256">256 GB</option>
+										<option value="512">512 GB</option>
+									</select>
+								</td>
+								<td class="text-center">
+									<input type="checkbox" name="" id="bestSeller" />
+								</td>
+							</tr>
+						</tbody>
+					</table>
+					<div class="text-center">
+						<button id="btnSave" class="btn btn-success"><i class="fas fa-plus"></i> Thêm sản phẩm</button>
+					</div>
+					<div class="toast hide">
+						<div class="toast-header">
+							<strong class="me-auto"><i class="fas fa-check" style="margin-right: 1rem"></i>Thêm sản phẩm thành công</strong>
+							<button type="button" class="btn-close" data-bs-dismiss="toast"></button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+	<!-- js bootstrap -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- js file -->
+	<script src="/js/admin/product.js"></script>
+	<!--js sweetalert -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+	<script>
+		let priceTbl = document.querySelectorAll('.priceTbl');
+		priceTbl.forEach((price) => {
+			let value = Number(price.textContent)
+				.toString()
+				.replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+			price.textContent = value;
+		});
+	</script>
 </html>

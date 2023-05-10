@@ -132,6 +132,15 @@ public class AdminController {
         return "redirect:/admin/product";
     }
 
+    // search product
+    @RequestMapping(value = { "/product/search" }, method = RequestMethod.GET)
+    public ModelAndView searchProduct(HttpServletRequest request, Model model) {
+        ModelAndView modelAndView = new ModelAndView("admin/product");
+        String name = request.getParameter("name");
+        modelAndView.addObject("products", productServiceservice.findByName(name));
+        return modelAndView;
+    }
+
     @RequestMapping(value = { "/user" }, method = RequestMethod.GET)
     public ModelAndView user(HttpServletRequest request, Model model) {
         ModelAndView modelAndView = new ModelAndView("admin/user");
