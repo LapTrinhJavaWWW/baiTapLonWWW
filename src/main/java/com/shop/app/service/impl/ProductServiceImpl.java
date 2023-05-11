@@ -3,6 +3,8 @@ package com.shop.app.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.shop.app.model.entites.Product;
@@ -20,8 +22,8 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> findAll() {
-        return repository.findAll();
+    public Page<Product> findAll(Pageable pageable) {
+        return repository.findAll(pageable);
     }
 
     @Override
@@ -37,6 +39,31 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product findById(Integer id) {
         return repository.findById(id).get();
+    }
+
+    @Override
+    public int countProduct() {
+        return repository.countProduct();
+    }
+
+    @Override
+    public List<Product> findByNameContaining(String name) {
+        return repository.findByNameContaining(name);
+    }
+
+    @Override
+    public List<Product> findBySlugContaining(String slug) {
+        return repository.findBySlugContaining(slug);
+    }
+
+    @Override
+    public List<Product> findByTypeContaining(String slug) {
+        return repository.findByTypeContaining(slug);
+    }
+
+    @Override
+    public List<Product> findBySlugContainingOrNameContainingOrTypeContaining(String slug, String name, String type) {
+        return repository.findBySlugContainingOrNameContainingOrTypeContaining(slug, name, type);
     }
 
 }

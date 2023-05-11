@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,7 @@ public class ProductController {
     public String userAccountInfor(Principal principal, Model model) {
         try {
             String userName = null;
-            ds.setDs(productServiceservice.findAll());
+            ds.setDs(productServiceservice.findAll(PageRequest.of(0, 8)).getContent());
             model.addAttribute("sanphams", ds.getDs());
             model.addAttribute("breadcrumb", "Điện thoại");
             model.addAttribute("href", "/san-pham/dien-thoai");
@@ -90,14 +91,14 @@ public class ProductController {
         return ResponseEntity.ok().body(dsFillter);
     }
 
-    @RequestMapping(value = "/search", method = RequestMethod.GET)
-    public String searchProduct(HttpServletRequest request, Model model) {
-        String searchVal = request.getParameter("searchVal");
-        List<Product> dsFillter = new ArrayList<>();
-        dsFillter = ds.search(searchVal);
-        model.addAttribute("sanphams", dsFillter);
-        return "user/product";
-    }
+    // @RequestMapping(value = "/search", method = RequestMethod.GET)
+    // public String searchProduct(HttpServletRequest request, Model model) {
+    // String searchVal = request.getParameter("searchVal");
+    // List<Product> dsFillter = new ArrayList<>();
+    // dsFillter = ds.search(searchVal);
+    // model.addAttribute("sanphams", dsFillter);
+    // return "user/product";
+    // }
 
     @RequestMapping(value = "/dien-thoai/{nameproduct}", method = RequestMethod.GET)
     public ModelAndView product_detail(Principal principal, HttpServletRequest request, Model model,

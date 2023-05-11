@@ -3,6 +3,7 @@ package com.shop.app.controller;
 import java.security.Principal;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +21,7 @@ public class HomeController {
 
     @RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
     public String home(Principal principal, Model model) {
-        model.addAttribute("sanphams", productServiceservice.findAll());
+        model.addAttribute("sanphams", productServiceservice.findAll(PageRequest.of(0, 8)).getContent());
         String userName = null;
         if (principal != null) {
             Account account = (Account) SecurityContextHolder.getContext().getAuthentication().getPrincipal();

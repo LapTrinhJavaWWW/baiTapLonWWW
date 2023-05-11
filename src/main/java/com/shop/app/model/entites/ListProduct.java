@@ -22,17 +22,6 @@ public class ListProduct {
         ds.add(p);
     }
 
-    public List<Product> search(String value) {
-        List<Product> list = new ArrayList<Product>();
-        ds.forEach(p -> {
-            if (p.getName().toLowerCase().contains(value.toLowerCase())) {
-                list.add(p);
-            }
-        });
-
-        return list;
-    }
-
     public List<Product> fillter(List<String> dsbrands, int minPrice, int maxPrice, String brand) {
         List<Product> list = new ArrayList<Product>();
         if (brand.equals("all") && maxPrice == 0) {
@@ -99,4 +88,25 @@ public class ListProduct {
         });
         return list;
     }
+
+    public List<Product> searchByType(String value) {
+        List<Product> list = new ArrayList<Product>();
+        ds.forEach(p -> {
+            if (p.getName().toLowerCase().contains(value.toLowerCase())) {
+                list.add(p);
+            }
+        });
+        return list;
+    }
+
+    public List<Product> searchByBrand(String value) {
+        List<Product> list = new ArrayList<Product>();
+        ds.forEach(p -> {
+            if (p.getSlug().toLowerCase().contains(value.toLowerCase())) {
+                list.add(p);
+            }
+        });
+        return list;
+    }
+
 }

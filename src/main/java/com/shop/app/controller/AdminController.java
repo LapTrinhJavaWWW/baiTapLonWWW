@@ -6,14 +6,19 @@ import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.shop.app.model.entites.Account;
 import com.shop.app.model.entites.Product;
 import com.shop.app.service.impl.ProductServiceImpl;
+import com.shop.app.service.impl.UserServiceImpl;
 
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.RequiredArgsConstructor;
@@ -24,25 +29,58 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 
     @Autowired
-    ProductServiceImpl productServiceservice;
+    ProductServiceImpl productService;
 
-    // private final UserRepository repository;
-
-    List<Product> ds = new ArrayList<Product>();
+    @Autowired
+    UserServiceImpl userService;
 
     @RequestMapping(value = { "", "/" }, method = RequestMethod.GET)
-    public ModelAndView admin() {
+    public ModelAndView admin(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin/product");
-        modelAndView.addObject("products", productServiceservice.findAll());
+        List<Integer> pages = new ArrayList<Integer>();
+        for (int i = 1; i <= (productService.countProduct() / 5) + 1; i++) {
+            pages.add(i);
+        }
+        modelAndView.addObject("pages", pages);
+
         return modelAndView;
     }
 
-    // get page product
-    @RequestMapping(value = { "/product" }, method = RequestMethod.GET)
+    // get page product/refresh page
+    @RequestMapping(value = { "/product", "/product/refresh" }, method = RequestMethod.GET)
     public ModelAndView product(HttpServletRequest request, Model model) {
         ModelAndView modelAndView = new ModelAndView("admin/product");
-        modelAndView.addObject("products", productServiceservice.findAll());
+
+        Page<Product> page = productService.findAll(PageRequest.of(0, 4));
+        List<Integer> listPage = new ArrayList<Integer>();
+        for (int i = 0; i < page.getTotalPages(); i++) {
+            listPage.add(i);
+        }
+        modelAndView.addObject("pages", listPage);
+        modelAndView.addObject("products", page.getContent());
+
         return modelAndView;
+    }
+
+    // search product
+    @RequestMapping(value = { "/product/search" }, method = RequestMethod.POST)
+    public ResponseEntity<?> searchProduct(HttpServletRequest request, Model model) {
+
+        String name = request.getParameter("search").trim();
+
+        List<Product> ds = productService.findBySlugContainingOrNameContainingOrTypeContaining(name, name, name);
+
+        return ResponseEntity.ok(ds);
+
+    }
+
+    // get pagination product
+    @RequestMapping(value = { "/product" }, method = RequestMethod.POST)
+    public ResponseEntity<?> productDs(HttpServletRequest request, Model model) {
+        int indexPage = Integer.parseInt(request.getParameter("page"));
+        Page<Product> page = productService.findAll(PageRequest.of(indexPage, 4));
+
+        return ResponseEntity.ok(page.getContent());
     }
 
     // save product
@@ -73,7 +111,7 @@ public class AdminController {
         product.setBestSeller(bestSeller);
         product.setType(type);
 
-        productServiceservice.save(product);
+        productService.save(product);
 
         return "redirect:/admin/product";
     }
@@ -82,7 +120,7 @@ public class AdminController {
     @RequestMapping(value = { "/product/deleted{id}" }, method = RequestMethod.GET)
     public String deleteProduct(HttpServletRequest request) {
         String id = request.getParameter("id");
-        productServiceservice.deleteById(Integer.parseInt(id));
+        productService.deleteById(Integer.parseInt(id));
         return "redirect:/admin/product";
     }
 
@@ -91,7 +129,7 @@ public class AdminController {
     public ModelAndView getProductById(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView("admin/product");
         String id = request.getParameter("id");
-        Product product = productServiceservice.findById(Integer.parseInt(id));
+        Product product = productService.findById(Integer.parseInt(id));
         System.out.println(product);
         modelAndView.addObject("product", product);
 
@@ -115,7 +153,7 @@ public class AdminController {
         String bestSeller = request.getParameter("bestSeller");
         String type = request.getParameter("type");
 
-        Product p = productServiceservice.findById(Integer.parseInt(id));
+        Product p = productService.findById(Integer.parseInt(id));
         p.setName(name);
         p.setSlug(slug);
         p.setPrice(price);
@@ -127,24 +165,36 @@ public class AdminController {
         p.setBestSeller(bestSeller);
         p.setType(type);
 
-        productServiceservice.save(p);
+        productService.save(p);
 
         return "redirect:/admin/product";
     }
 
-    // search product
-    @RequestMapping(value = { "/product/search" }, method = RequestMethod.GET)
-    public ModelAndView searchProduct(HttpServletRequest request, Model model) {
-        ModelAndView modelAndView = new ModelAndView("admin/product");
-        String name = request.getParameter("name");
-        modelAndView.addObject("products", productServiceservice.findByName(name));
+    // get page user/refresh page
+    @RequestMapping(value = { "/user", "/user/refresh" }, method = RequestMethod.GET)
+    public ModelAndView user(HttpServletRequest request, Model model) {
+        ModelAndView modelAndView = new ModelAndView("admin/user");
+
+        Page<Account> page = userService.findAll(PageRequest.of(0, 4));
+        List<Integer> listPage = new ArrayList<Integer>();
+        for (int i = 0; i < page.getTotalPages(); i++) {
+            listPage.add(i);
+        }
+        modelAndView.addObject("pages", listPage);
+        modelAndView.addObject("users", page.getContent());
+
         return modelAndView;
     }
 
-    @RequestMapping(value = { "/user" }, method = RequestMethod.GET)
-    public ModelAndView user(HttpServletRequest request, Model model) {
-        ModelAndView modelAndView = new ModelAndView("admin/user");
-        return modelAndView;
+    // search user
+    @RequestMapping(value = { "/user/search" }, method = RequestMethod.POST)
+    public ResponseEntity<?> searchUser(HttpServletRequest request, Model model) {
+
+        String name = request.getParameter("search").trim();
+
+        List<Account> ds = userService.findByLastNameContainingOrFirstNameContaining(name, name);
+
+        return ResponseEntity.ok(ds);
     }
 
 }
