@@ -36,6 +36,8 @@ public class Cart {
     public void addItem( Product  product) {
         items.add(product);
         totalPrice += product.getPrice();
+        System.out.println("kaiiiiiiiiiiiiiiiiii");
+        System.out.println(totalPrice);
     }
 
     public List< Product>  getItems() {

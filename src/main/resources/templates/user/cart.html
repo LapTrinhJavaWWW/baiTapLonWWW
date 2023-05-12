@@ -160,7 +160,7 @@
                                     </div>
                                 </div>
                             </div>
-<!--                            Kaiwin--> 
+<!--                            Kaiwin-->
                             <li th:each="item : ${cart.items}">
                                 <div class="css-xr8qe8">
                                     <div
@@ -261,8 +261,7 @@
                                                                 class="teko-row teko-row-end teko-row-middle css-1o3gs9x"
                                                         >
                                 <span class="product-price__price css-1u7nn1v"
-                                      th:text="${price}"
-                                ></span
+                                      th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}">10.00</span
                                 > đ
                                                         </div>
                                                         <div
@@ -271,8 +270,9 @@
                                                             <del>
                                 <span
                                         class="product-price__listed-price att-strike-through-display-price css-10zxjrh"
+                                        th:text="${#numbers.formatDecimal(item.price+2000000, 0, 'COMMA', 2, 'POINT')}">10.00
 
-                                >27.990.000₫</span
+                                </span
                                 ></del>
                                                         </div>
                                                     </div>
@@ -356,8 +356,8 @@
                                                         >
 <!--                                                            Kaiwin-->
                                 <span class="product-price__price css-1u7nn1v"
-                                      th:text="${price}"
-                                ></span
+                                      th:text="${#numbers.formatDecimal(item.price, 0, 'COMMA', 2, 'POINT')}">10.00
+                                </span
                                 >đ
                                                         </div>
                                                     </div>
@@ -425,8 +425,9 @@
                                             class="teko-col css-gr7r8o"
                                             style="text-align: right"
                                     >
-                                        <div type="subtitle" color="" class="css-1mc3imd">
-                                            50.780.000₫
+                                        <div type="subtitle" color="" class="css-1mc3imd"
+
+                                             th:text="${#numbers.formatDecimal(cart.totalPrice, 0, 'COMMA', 2, 'POINT')}">10.00
                                         </div>
                                     </div>
                                 </div>
@@ -444,7 +445,8 @@
                           <span
                                   color="primary500"
                                   class="att-final-price css-1hkl6un"
-                          >50.780.000đ</span
+                                  th:text="${#numbers.formatDecimal(cart.totalPrice, 0, 'COMMA', 2, 'POINT')}">10.00
+                          </span
                           >
                                         </div>
                                         <div

@@ -42,25 +42,24 @@ public class CartController  {
             // Nếu giỏ hàng chưa tồn tại, tạo một giỏ hàng mới
             cart = new Cart();
         }
-        // Lấy danh sách sản phẩm hiện có trong giỏ hàng
-        List<Product> items = cart.getItems();
 
         // Lấy thông tin sản phẩm mới dựa trên id
         Product product = productServiceservice.findById(Integer.valueOf(id));
         DecimalFormat decimalFormat = new DecimalFormat("#,###.##");
+        decimalFormat.setGroupingUsed(false);
         double price = product.getPrice();
-        System.out.println("Price: "+ decimalFormat.format(price));
 
-        // Thêm sản phẩm mới vào danh sách sản phẩm trong giỏ hàng
-        items.add(product);
+        String formattedPrice = decimalFormat.format(price); // Chuỗi đã định dạng có dấu phẩy
+        formattedPrice = formattedPrice.replace(",", ""); // Loại bỏ dấu phẩy
+        double parsedPrice = Double.parseDouble(formattedPrice); // Chuyển đổi thành số double
+        product.setPrice(parsedPrice);
+
 
         // Cập nhật lại danh sách sản phẩm trong giỏ hàng
-        cart.setItems(items);
-
+cart.addItem(product);
         // Lưu giỏ hàng vào session
 
         session.setAttribute("cart", cart);
-        session.setAttribute("price",  decimalFormat.format(price));
 
         System.out.println(cart);
 
@@ -72,7 +71,6 @@ public class CartController  {
         HttpSession session = request.getSession();
         // Lấy đối tượng Cart từ session
         Cart cart = (Cart) session.getAttribute("cart");
-        String price = (String) session.getAttribute("price");
         if (cart == null) {
             // Nếu giỏ hàng chưa tồn tại, tạo mới một đối tượng Cart
             cart = new Cart();
@@ -81,7 +79,6 @@ public class CartController  {
         // Thêm đối tượng Cart vào model
 
         model.addAttribute("cart", cart);
-        model.addAttribute("price", price);
         // Trả về trang cart.html
         return "user/cart";
     }
