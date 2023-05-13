@@ -29,9 +29,6 @@ public class CartController  {
     ProductService productServiceservice;
 
 
-
-
-
     @PostMapping("/add-to-cart")
     public ResponseEntity<?> addToCart(HttpServletRequest request, Model model, HttpSession session) {
         String id = request.getParameter("id");
@@ -56,7 +53,11 @@ public class CartController  {
 
 
         // Cập nhật lại danh sách sản phẩm trong giỏ hàng
-cart.addItem(product);
+
+
+        cart.addItem(product);
+        System.out.println("Kaiiwinnnnn");
+        System.out.println(cart);
         // Lưu giỏ hàng vào session
 
         session.setAttribute("cart", cart);

@@ -280,7 +280,9 @@
                                                 <div class="teko-col teko-col-2 css-gr7r8o">
                                                     <div class="css-1oskuwq">
                                                         <div class="css-2c0axb">
-                                                            <button disabled="" class="css-1kcvffe">
+                                                            <button
+                                                                    onclick="decreaseAmount([[${item.id}]]);" disabled="[[${cart.productAmounts[item.id] <= 1}]]"
+                                                                    class="css-1kcvffe">
                                   <span class="css-1orfikq"
                                   ><svg
                                           fill="none"
@@ -315,14 +317,17 @@
                                                                                     aria-valuenow="1"
                                                                                     step="1"
                                                                                     class="rc-input-number-input"
-                                                                                    value="1"
                                                                                     fdprocessedid="jrltqm"
+
+                                                                                    type="text" th:value="${cart.productAmounts[item.id]}"
+
                                                                             />
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <button
+                                                                    onclick="increaseAmount([[${item.id}]]);"
                                                                     class="css-1i77det"
                                                                     fdprocessedid="lfrng7"
                                                             >
@@ -545,4 +550,22 @@
     </div>
 </div>
 </body>
+<script th:inline="javascript">
+    function decreaseAmount(productId) {
+        var amountElement = document.getElementById("amount-" + productId);
+        var amount = parseInt(amountElement.textContent);
+        if (amount > 1) {
+            amount--;
+            amountElement.textContent = amount;
+        }
+    }
+
+    function increaseAmount(productId) {
+        var amountElement = document.getElementById("amount-" + productId);
+        var amount = parseInt(amountElement.textContent);
+        amount++;
+        amountElement.textContent = amount;
+        printf(amount);
+    }
+</script>
 </html>
